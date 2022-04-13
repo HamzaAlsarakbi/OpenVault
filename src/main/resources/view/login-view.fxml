@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="960.0" maxWidth="640.0" minHeight="480.0" minWidth="320.0" prefHeight="480.0" prefWidth="320.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="960.0" minHeight="408.0" prefHeight="408.0" prefWidth="259.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <Label text="OpenVault">
       <font>
          <Font size="32.0" />

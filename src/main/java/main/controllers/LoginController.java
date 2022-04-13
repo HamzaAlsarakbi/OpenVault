@@ -23,6 +23,10 @@ public class LoginController extends Application {
             e.printStackTrace();
             System.out.println("ERROR while loading login FXML file.");
         }
+        stage.setMinHeight(480);
+        stage.setMaxHeight(640);
+        stage.setMinWidth(320);
+        stage.setMaxWidth(960);
         stage.setTitle("Login - OpenVault");
         stage.setScene(scene);
         stage.show();

@@ -1,0 +1,20 @@
+Button {
+    -fx-background-color: transparent;
+    -fx-font: 16px Tahoma;
+    -fx-border: none;
+    -fx-text-fill: rgb(160, 160, 160);
+}
+
+Button.highlighted-button {
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(61, 58, 255) 0%, rgb(24, 182, 255) 50%);
+}
+Button:hover {
+    -fx-text-fill: rgb(122, 122, 231);
+    -fx-transition: 0.2s;
+    -fx-cursor: hand;
+}
+Label {
+    -fx-font: 18px Tahoma;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(200, 200, 200);
+}

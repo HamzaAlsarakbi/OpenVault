@@ -13,13 +13,16 @@ public class MainController extends Application {
 
     @Override
     public void start(Stage stage) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/main-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/main/main-view.fxml"));
         try {
-            scene = new Scene(fxmlLoader.load(), 500, 500);
+            scene = new Scene(fxmlLoader.load());
         } catch(IOException e) {
             e.printStackTrace();
             System.out.println("ERROR while loading login FXML file.");
         }
+
+        stage.setMinWidth(500);
+        stage.setMinHeight(500);
         stage.setTitle("Dashboard");
         stage.setScene(scene);
         stage.show();

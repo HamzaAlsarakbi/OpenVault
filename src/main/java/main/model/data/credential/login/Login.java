@@ -2,6 +2,7 @@ package main.model.data.credential.login;
 
 import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
+import main.model.data.credential.password_strength.PasswordStrength;
 
 public class Login extends Credential {
     private String type, service, alias, password;
@@ -41,20 +42,30 @@ public class Login extends Credential {
 
     // Setters
     public void setLoginCredential(String[] loginCredential) throws CredentialInvalidException {
+        // Loop through Type, Service, Email/Username and Password
         for(int i = 0; i < loginCredential.length; i++) {
-            if(loginCredential[i] != null) {
-                loginCredential[i] = loginCredential[i].trim();
-                // If credential is below min length
-                if(loginCredential[i].length() < MIN_LENGTH) {
-                    throw new CredentialInvalidException(String.format("%s must be at least at least %d characters long. \"%s\" provided.",
-                            credentialColumns[i], MIN_LENGTH, loginCredential[i]));
-                }
-                // Add credential.
-                this.loginCredential[i] = loginCredential[i];
+            if(loginCredential[i] == null) throw new CredentialInvalidException(String.format("%s is null. Expected: String.", credentialColumns[i]));
+            loginCredential[i] = loginCredential[i].trim();
+            // If credential is below min length
+            if(loginCredential[i].length() < MIN_LENGTH) {
+                throw new CredentialInvalidException(String.format("%s must be at least at least %d characters long. \"%s\" provided.",
+                        credentialColumns[i], MIN_LENGTH, loginCredential[i]));
             }
+
+            // Add credential.
+            this.loginCredential[i] = loginCredential[i];
         }
+        addToLog("Updated login details.");
     }
 
 
+    @Override
+    public int getPasswordStrength() {
+        return PasswordStrength.getPasswordStrength(password);
+    }
 
+    @Override
+    public String getStringifiedPasswordStrength() {
+        return PasswordStrength.getStringifiedPasswordStrength(password);
+    }
 }

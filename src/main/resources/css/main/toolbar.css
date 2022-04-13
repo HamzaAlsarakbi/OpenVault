@@ -1,0 +1,9 @@
+.toolbar {
+    border-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+    -fx-background-color: #2f6be9;
+}
+
+.input {
+    -fx-background-color: rgb(50, 250, 50);
+}

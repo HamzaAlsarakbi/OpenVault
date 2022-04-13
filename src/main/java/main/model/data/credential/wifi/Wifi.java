@@ -2,6 +2,7 @@ package main.model.data.credential.wifi;
 
 import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
+import main.model.data.credential.password_strength.PasswordStrength;
 
 public class Wifi extends Credential {
 
@@ -32,8 +33,17 @@ public class Wifi extends Credential {
             // Add credential.
             this.wifiCredential[i] = credential[i];
         }
+        addToLog("Updated wifi details.");
     }
 
 
+    @Override
+    public int getPasswordStrength() {
+        return PasswordStrength.getPasswordStrength(password);
+    }
 
+    @Override
+    public String getStringifiedPasswordStrength() {
+        return PasswordStrength.getStringifiedPasswordStrength(password);
+    }
 }
