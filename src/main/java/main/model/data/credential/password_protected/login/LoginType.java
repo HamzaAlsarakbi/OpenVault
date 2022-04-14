@@ -1,4 +1,4 @@
-package main.model.data.credential.login;
+package main.model.data.credential.password_protected.login;
 
 import java.util.ArrayList;
 import java.util.TreeSet;

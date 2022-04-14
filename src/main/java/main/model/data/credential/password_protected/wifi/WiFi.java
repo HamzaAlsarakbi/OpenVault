@@ -1,10 +1,10 @@
-package main.model.data.credential.wifi;
+package main.model.data.credential.password_protected.wifi;
 
-import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
-import main.model.data.credential.password_strength.PasswordStrength;
+import main.model.data.credential.password_protected.PasswordProtected;
+import main.model.data.credential.password_protected.password_strength.PasswordStrength;
 
-public class Wifi extends Credential {
+public class WiFi extends PasswordProtected {
 
     private static final int MIN_LENGTH = 3;
     private String name;
@@ -12,11 +12,11 @@ public class Wifi extends Credential {
     private String[] wifiCredential;
     private final String[] credentialType = { "Access Point name", "Password" };
 
-    public Wifi(String name, String password) throws CredentialInvalidException {
+    public WiFi(String name, String password) throws CredentialInvalidException {
         this(new String[]{ name, password });
     }
 
-    public Wifi(String[] credential) throws CredentialInvalidException {
+    public WiFi(String[] credential) throws CredentialInvalidException {
         super();
         this.wifiCredential = new String[] { name, password };
         setWifiCredential(credential);
@@ -36,6 +36,15 @@ public class Wifi extends Credential {
         addToLog("Updated wifi details.");
     }
 
+    public boolean equals(WiFi wifi) {
+        if(wifi == null) return false;
+        return toString().equals(wifi.toString());
+    }
+
+    public String toString() {
+        return String.format("WiFi credential. Name: \"%s\". Password: \"%s\". Created: %s",
+                name, password, getCreationDate().toString());
+    }
 
     @Override
     public int getPasswordStrength() {

@@ -11,8 +11,8 @@ module main {
     requires eu.hansolo.tilesfx;
     requires org.junit.jupiter.api;
 
-    opens main to javafx.fxml;
-    exports main;
     exports main.lib;
     opens main.lib to javafx.fxml;
+    opens main to javafx.fxml;
+    exports main;
 }

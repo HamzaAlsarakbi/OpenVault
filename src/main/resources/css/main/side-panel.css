@@ -1,20 +1,53 @@
-Button {
-    -fx-background-color: transparent;
-    -fx-font: 16px Tahoma;
-    -fx-border: none;
-    -fx-text-fill: rgb(160, 160, 160);
+.root {
+    -fx-background-color: rgb(25, 25, 25);
 }
 
-Button.highlighted-button {
-    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(61, 58, 255) 0%, rgb(24, 182, 255) 50%);
+HBox {
+    -fx-padding: 10 10 10 10;
+    -fx-background-radius: 20px;
+    -fx-pref-height: 40px;
+    -fx-min-height: 40px;
+    -fx-max-height: 40px;
+    -fx-padding: 10px;
+    -fx-background-insets: 1px;
 }
-Button:hover {
-    -fx-text-fill: rgb(122, 122, 231);
-    -fx-transition: 0.2s;
+HBox.active {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(70, 100, 235) 0%, rgb(74, 103, 233) 50%);
+}
+HBox:hover {
     -fx-cursor: hand;
 }
-Label {
+HBox.active Label {
+    -fx-text-fill: rgb(255, 255, 255);
+}
+Label.header {
     -fx-font: 18px Tahoma;
     -fx-font-weight: bold;
+    -fx-padding: 10 0 10 10;
     -fx-text-fill: rgb(200, 200, 200);
+    /* -fx-background-color: rgb(30, 30, 30); */
+    -fx-background-radius: 20px 20px 0 0;
+    -fx-pref-width: 200;
+}
+
+HBox Label {
+    -fx-background-color: transparent;
+    -fx-font: 14px Tahoma;
+    -fx-border: none;
+    -fx-text-fill: rgb(160, 160, 160);
+    -fx-padding: 0 0 0 8;
+}
+
+HBox:hover Label {
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(70, 100, 235) 0%, rgb(74, 103, 233) 50%);
+}
+
+.icon {
+    -fx-margin: 50 10 10 10;
+    -fx-pref-height: 100;
+}
+
+VBox {
+    /* -fx-background-color: rgb(40, 40, 40); */
+    -fx-background-radius: 20px;
 }

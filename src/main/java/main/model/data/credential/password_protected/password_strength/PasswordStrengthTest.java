@@ -1,4 +1,4 @@
-package main.model.data.credential.password_strength;
+package main.model.data.credential.password_protected.password_strength;
 import org.junit.jupiter.api.Assertions;
 
 class PasswordStrengthTest {

@@ -1,10 +1,10 @@
-package main.model.data.credential.login;
+package main.model.data.credential.password_protected.login;
 
-import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
-import main.model.data.credential.password_strength.PasswordStrength;
+import main.model.data.credential.password_protected.PasswordProtected;
+import main.model.data.credential.password_protected.password_strength.PasswordStrength;
 
-public class Login extends Credential {
+public class Login extends PasswordProtected {
     private String type, service, alias, password;
     private String[] loginCredential;
     private static final String[] credentialColumns = {"Type", "Service", "Email/Username", "Password" };
@@ -56,6 +56,17 @@ public class Login extends Credential {
             this.loginCredential[i] = loginCredential[i];
         }
         addToLog("Updated login details.");
+    }
+
+    public boolean equals(Login login) {
+        if(login == null) return false;
+        return toString().equals(login.toString());
+    }
+
+    public String toString() {
+        return String.format(
+                "Login Credential. Type: \"%s\". Service: \"%s\". Email/Username: \"%s\". Password: \"%s\". Created: %s",
+                type, service, alias, password, getCreationDate().toString());
     }
 
 
