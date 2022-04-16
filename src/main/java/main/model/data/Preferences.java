@@ -3,7 +3,7 @@ package main.model.data;
 import java.io.Serializable;
 
 public class Preferences implements Serializable {
-    private boolean toolTips, animations;
+    private boolean toolTips, animations, showFirstCharactersOfPassword;
     private int inactivityDuration, timeoutGracePeriodDuration;
 
     /**
@@ -12,6 +12,7 @@ public class Preferences implements Serializable {
     public Preferences() {
         toolTips = true;
         animations = true;
+        showFirstCharactersOfPassword = true;
         inactivityDuration = 180;
         timeoutGracePeriodDuration = 60;
     }

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,8 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="550.0" minWidth="800.0" prefHeight="550.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="800.0"
+            prefHeight="700.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml" fx:controller="main.controllers.MainController">
    <left>
       <AnchorPane prefHeight="550.0" prefWidth="189.0" styleClass="root" stylesheets="@../../css/main/side-panel.css" BorderPane.alignment="CENTER">
          <children>
@@ -24,7 +23,7 @@
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
-                              <Image url="@../../icons/side-panel/gear/gear.png" />
+                              <Image url="@../../icons/side-panel/dashboard/dashboard.png" />
                            </image>
                            <HBox.margin>
                               <Insets />
@@ -42,7 +41,7 @@
             <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
                <children>
                   <Label styleClass="header" text="CREDENTIALS" />
-                  <HBox prefHeight="30.0" prefWidth="136.0">
+                  <HBox onMouseClicked="#loginsHandler" prefHeight="30.0" prefWidth="136.0">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
@@ -63,13 +62,30 @@
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
-                              <Image url="@../../icons/side-panel/gear/gear.png" />
+                              <Image url="@../../icons/side-panel/passwords/passwords.png" />
                            </image>
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="140.0" text="WiFi">
+                        <Label prefHeight="30.0" prefWidth="140.0" text="PINs">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="30.0" prefWidth="136.0">
+                     <children>
+                        <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                           <image>
+                              <Image url="@../../icons/side-panel/passwords/passwords.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label prefHeight="30.0" prefWidth="140.0" text="Authentication Codes">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -97,13 +113,13 @@
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
-                              <Image url="@../../icons/side-panel/documents/documents.png" />
+                              <Image url="@../../icons/side-panel/gear/gear.png" />
                            </image>
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="140.0" text="Documents">
+                        <Label prefHeight="30.0" prefWidth="140.0" text="Wi-Fi">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -114,13 +130,47 @@
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
-                              <Image url="@../../icons/side-panel/gear/gear.png" />
+                              <Image url="@../../icons/side-panel/keys/keys.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label prefHeight="30.0" prefWidth="140.0" text="Keys">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="30.0" prefWidth="136.0">
+                     <children>
+                        <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                           <image>
+                              <Image url="@../../icons/side-panel/credit-card/credit-card.png" />
                            </image>
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </ImageView>
                         <Label prefHeight="30.0" prefWidth="140.0" text="Credit Cards">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="30.0" prefWidth="136.0">
+                     <children>
+                        <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                           <image>
+                              <Image url="@../../icons/side-panel/documents/documents.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label prefHeight="30.0" prefWidth="140.0" text="Notes">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -199,24 +249,12 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <TextField alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="354.0" promptText="Search OpenVault">
-                           <HBox.margin>
-                              <Insets left="10.0" right="10.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="Corbel" size="12.0" />
-                           </font>
-                           <styleClass>
-                              <String fx:value="input" />
-                              <String fx:value="toolbar-item" />
-                           </styleClass>
-                        </TextField>
-                        <HBox prefHeight="100.0" prefWidth="200.0" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </HBox>
+                  <ToggleButton mnemonicParsing="false" text="ToggleButton" />
                </children>
             </VBox>
          </children>

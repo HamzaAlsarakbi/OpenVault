@@ -8,6 +8,7 @@ public abstract class Credential {
     private ArrayList<Pair<Date, String>> changeLog;
     private Date creationDate;
     private String notes;
+    public static final int MIN_LENGTH = 2;
 
     public Credential() {
         changeLog = new ArrayList<Pair<Date, String>>();
@@ -33,4 +34,38 @@ public abstract class Credential {
         this.notes = notes;
     }
     public String getNotes() { return notes; }
+    public abstract String toString();
+
+    /**
+     * Checks string if it is valid.
+     * @param type type of string (Key, Service, Type, Name, etc.)
+     * @param string string to be checked
+     * @param minLength minimum length of string to be checked
+     * @throws CredentialInvalidException if the string is invalid.
+     */
+    protected void checkString(String type, String string, int minLength) throws CredentialInvalidException {
+        if(string == null) {
+            throw new CredentialInvalidException(type + " cannot be null.");
+        }
+        if(string.length() < minLength) {
+            throw new CredentialInvalidException(
+                    String.format("%s is too short. Must be at least %d characters long", type, minLength));
+        }
+    }
+
+    /**
+     * Checks string if it is valid.
+     * @param type type of string (Key, Service, Type, Name, etc.)
+     * @param string string to be checked
+     * @throws CredentialInvalidException if the string is invalid.
+     */
+    protected void checkString(String type, String string) throws CredentialInvalidException { checkString(type, string, MIN_LENGTH); }
+
+
+
+    public boolean equals(Object obj) {
+        if(obj == null) return false;
+        if(!(obj instanceof Credential)) return false;
+        return toString().equals(obj.toString());
+    }
 }

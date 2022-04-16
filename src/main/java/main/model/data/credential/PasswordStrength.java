@@ -1,4 +1,4 @@
-package main.model.data.credential.password_protected;
+package main.model.data.credential;
 
 public interface PasswordStrength {
     public int getPasswordStrength();

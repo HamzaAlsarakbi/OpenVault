@@ -1,10 +1,10 @@
 .root {
-    -fx-background-color: rgb(25, 25, 25);
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(35, 35, 35) 0%, rgb(20, 20, 20) 50%);
 }
 
 HBox {
     -fx-padding: 10 10 10 10;
-    -fx-background-radius: 20px;
+    -fx-background-radius: 0 20px 20px 0;
     -fx-pref-height: 40px;
     -fx-min-height: 40px;
     -fx-max-height: 40px;

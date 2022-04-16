@@ -2,6 +2,7 @@ module main {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires javafx.base;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
@@ -15,4 +16,6 @@ module main {
     opens main.lib to javafx.fxml;
     opens main to javafx.fxml;
     exports main;
+    opens main.controllers to javafx.fxml;
+    exports main.controllers;
 }

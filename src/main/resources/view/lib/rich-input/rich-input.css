@@ -1,0 +1,8 @@
+Label {
+    -fx-text-fill: rgb(240, 240, 240);
+}
+
+TextField {
+    -fx-text-box-border: transparent;
+    -fx-text-fill: rgb(240, 240, 240);
+}

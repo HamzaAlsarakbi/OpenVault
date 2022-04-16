@@ -1,10 +1,10 @@
-package main.model.data.credential.password_protected.wifi;
+package main.model.data.credential.wifi;
 
+import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
-import main.model.data.credential.password_protected.PasswordProtected;
-import main.model.data.credential.password_protected.password_strength.PasswordStrength;
+import main.lib.password_strength.PasswordStrength;
 
-public class WiFi extends PasswordProtected {
+public class WiFi extends Credential implements main.model.data.credential.PasswordStrength {
 
     private static final int MIN_LENGTH = 3;
     private String name;
@@ -36,10 +36,6 @@ public class WiFi extends PasswordProtected {
         addToLog("Updated wifi details.");
     }
 
-    public boolean equals(WiFi wifi) {
-        if(wifi == null) return false;
-        return toString().equals(wifi.toString());
-    }
 
     public String toString() {
         return String.format("WiFi credential. Name: \"%s\". Password: \"%s\". Created: %s",

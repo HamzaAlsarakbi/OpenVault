@@ -1,14 +1,14 @@
-package main.model.data.credential.password_protected.login;
+package main.model.data.credential.identification.login;
+
 
 import main.model.data.credential.CredentialInvalidException;
-import main.model.data.credential.password_protected.PasswordProtected;
-import main.model.data.credential.password_protected.password_strength.PasswordStrength;
+import main.model.data.credential.identification.Identification;
+import main.lib.password_strength.PasswordStrength;
 
-public class Login extends PasswordProtected {
-    private String type, service, alias, password;
+public class Login extends Identification implements main.model.data.credential.PasswordStrength {
+    private String alias, password;
     private String[] loginCredential;
     private static final String[] credentialColumns = {"Type", "Service", "Email/Username", "Password" };
-    public static final int MIN_LENGTH = 3;
 
     /**
      * Constructs a Credential object. All inputs are trimed.
@@ -29,13 +29,11 @@ public class Login extends PasswordProtected {
      */
     public Login(String[] credential) throws CredentialInvalidException {
         super();
-        credential = new String[]{ this.type, this.service, this.alias, this.password };
+        this.loginCredential = new String[]{ this.type, this.service, this.alias, this.password };
         setLoginCredential(credential);
     }
 
     // Getters
-    public String getType() { return type; }
-    public String getService() { return service; }
     public String getAlias() { return alias; }
     public String getPassword() { return password; }
     public String[] getLoginCredential() { return loginCredential; }
@@ -44,24 +42,12 @@ public class Login extends PasswordProtected {
     public void setLoginCredential(String[] loginCredential) throws CredentialInvalidException {
         // Loop through Type, Service, Email/Username and Password
         for(int i = 0; i < loginCredential.length; i++) {
-            if(loginCredential[i] == null) throw new CredentialInvalidException(String.format("%s is null. Expected: String.", credentialColumns[i]));
-            loginCredential[i] = loginCredential[i].trim();
-            // If credential is below min length
-            if(loginCredential[i].length() < MIN_LENGTH) {
-                throw new CredentialInvalidException(String.format("%s must be at least at least %d characters long. \"%s\" provided.",
-                        credentialColumns[i], MIN_LENGTH, loginCredential[i]));
-            }
-
-            // Add credential.
-            this.loginCredential[i] = loginCredential[i];
+            checkString(loginCredential[i], credentialColumns[i]);
+            this.loginCredential[i] = loginCredential[i].trim();
         }
         addToLog("Updated login details.");
     }
 
-    public boolean equals(Login login) {
-        if(login == null) return false;
-        return toString().equals(login.toString());
-    }
 
     public String toString() {
         return String.format(
