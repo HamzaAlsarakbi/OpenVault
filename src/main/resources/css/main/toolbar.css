@@ -1,9 +1,11 @@
 .toolbar {
-    border-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
     -fx-background-color: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(70, 122, 235) 0%, rgb(65, 62, 230) 50%);
+    /* -fx-padding: 10; */
+    /* -fx-max-height: 50; */
 }
 
-.input {
-    -fx-background-color: rgb(50, 250, 50);
+AnchorPane {
+    -fx-padding: 5;
+    -fx-inset: 5;
 }

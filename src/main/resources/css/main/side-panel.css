@@ -13,9 +13,11 @@ HBox {
 }
 HBox.active {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(70, 100, 235) 0%, rgb(74, 103, 233) 50%);
+    -fx-effect: dropshadow(three-pass-box, rgba(20, 20, 20, 0.5), 10, 0, 0, 0);
 }
 HBox:hover {
     -fx-cursor: hand;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(40, 40, 40) 0%, rgb(45, 45, 45) 50%);
 }
 HBox.active Label {
     -fx-text-fill: rgb(255, 255, 255);
@@ -39,7 +41,7 @@ HBox Label {
 }
 
 HBox:hover Label {
-    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(70, 100, 235) 0%, rgb(74, 103, 233) 50%);
+    -fx-text-fill: rgb(200, 200, 200);
 }
 
 .icon {

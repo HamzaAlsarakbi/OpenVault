@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,15 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="800.0"
-            prefHeight="700.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml" fx:controller="main.controllers.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="800.0" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.MainController">
    <left>
       <AnchorPane prefHeight="550.0" prefWidth="189.0" styleClass="root" stylesheets="@../../css/main/side-panel.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="4.0" layoutY="14.0" prefHeight="73.0" prefWidth="177.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+            <VBox id="dashboardButton" layoutX="4.0" layoutY="14.0" prefHeight="73.0" prefWidth="177.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                <children>
                   <Label styleClass="header" text="GENERAL" />
-                  <HBox prefHeight="50.0" prefWidth="204.0" styleClass="active">
+                  <HBox fx:id="dashboardButton" onMouseClicked="#dashboardHandler" prefHeight="50.0" prefWidth="204.0" styleClass="active">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
@@ -29,7 +27,7 @@
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="140.0" styleClass="active" text="Dashboard">
+                        <Label prefHeight="30.0" styleClass="active" text="Dashboard">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -41,7 +39,7 @@
             <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
                <children>
                   <Label styleClass="header" text="CREDENTIALS" />
-                  <HBox onMouseClicked="#loginsHandler" prefHeight="30.0" prefWidth="136.0">
+                  <HBox fx:id="loginsButton" onMouseClicked="#loginsHandler" prefHeight="30.0" prefWidth="136.0">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
@@ -51,14 +49,14 @@
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="140.0" text="Passwords">
+                        <Label prefHeight="30.0" text="Passwords">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="30.0" prefWidth="136.0">
+                  <HBox fx:id="pinsButton" onMouseClicked="#pinsHandler" prefHeight="30.0" prefWidth="136.0">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
@@ -68,14 +66,14 @@
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="140.0" text="PINs">
+                        <Label prefHeight="30.0" text="PINs">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="30.0" prefWidth="136.0">
+                  <HBox fx:id="authenticationCodesButton" onMouseClicked="#authenticationCodesHandler" prefHeight="30.0" prefWidth="136.0">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
@@ -85,14 +83,14 @@
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="140.0" text="Authentication Codes">
+                        <Label prefHeight="30.0" text="Authentication Codes">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="30.0" prefWidth="136.0">
+                  <HBox fx:id="securityQuestionsButton" onMouseClicked="#securityQuestionsHandler" prefHeight="30.0" prefWidth="136.0">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
@@ -102,14 +100,14 @@
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="188.0" text="Security Questions">
+                        <Label prefHeight="20.0" text="Security Questions">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="30.0" prefWidth="136.0">
+                  <HBox fx:id="wifiButton" onMouseClicked="#wifiHandler" prefHeight="30.0" prefWidth="136.0">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
@@ -119,14 +117,14 @@
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="140.0" text="Wi-Fi">
+                        <Label prefHeight="30.0" text="Wi-Fi">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="30.0" prefWidth="136.0">
+                  <HBox fx:id="keysButton" onMouseClicked="#keysHandler" prefHeight="30.0" prefWidth="136.0">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
@@ -136,14 +134,14 @@
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="140.0" text="Keys">
+                        <Label prefHeight="30.0" text="Keys">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="30.0" prefWidth="136.0">
+                  <HBox fx:id="creditCardsButton" onMouseClicked="#creditCardsHandler" prefHeight="30.0" prefWidth="136.0">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
@@ -153,14 +151,14 @@
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="140.0" text="Credit Cards">
+                        <Label prefHeight="30.0" text="Credit Cards">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="30.0" prefWidth="136.0">
+                  <HBox fx:id="notesButton" onMouseClicked="#notesHandler" prefHeight="30.0" prefWidth="136.0">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
@@ -170,7 +168,7 @@
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="140.0" text="Notes">
+                        <Label prefHeight="30.0" text="Notes">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -186,7 +184,7 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <HBox prefHeight="30.0" prefWidth="136.0">
+                  <HBox fx:id="settingsButton" onMouseClicked="#settingsHandler" prefHeight="30.0" prefWidth="136.0">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
@@ -196,37 +194,37 @@
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="178.0" text="Settings">
+                        <Label prefHeight="30.0" text="Settings">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox>
+                  <HBox fx:id="lockButton" onMouseClicked="#lockHandler">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../icons/side-panel/lock/lock.png" />
                            </image>
                            <HBox.margin>
-                              <Insets right="2.0" />
+                              <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="196.0" text="Lock" />
+                        <Label prefHeight="30.0" text="Lock" />
                      </children>
                   </HBox>
-                  <HBox>
+                  <HBox fx:id="aboutButton" onMouseClicked="#aboutHandler">
                      <children>
                         <ImageView fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <image>
                               <Image url="@../../icons/side-panel/about/about.png" />
                            </image>
                            <HBox.margin>
-                              <Insets right="2.0" />
+                              <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="30.0" prefWidth="227.0" text="About" />
+                        <Label prefHeight="30.0" text="About" />
                      </children>
                   </HBox>
                </children>
@@ -235,29 +233,19 @@
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox maxWidth="-Infinity" prefHeight="600.0" prefWidth="968.0" style="-fx-background-color: rgb(30, 30, 30);" BorderPane.alignment="CENTER">
          <children>
-            <VBox maxWidth="-Infinity" prefHeight="600.0" prefWidth="968.0" style="-fx-background-color: rgb(30, 30, 30);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane maxHeight="-Infinity" styleClass="toolbar" stylesheets="@../../css/main/toolbar.css">
                <children>
-                  <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="47.0" styleClass="toolbar" stylesheets="@../../css/main/toolbar.css">
-                     <children>
-                        <Label id="toolbar-label" minWidth="-Infinity" prefHeight="47.0" prefWidth="96.0" styleClass="toolbar-item" text="OpenVault" textFill="GAINSBORO">
-                           <font>
-                              <Font name="Corbel Bold" size="20.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </HBox>
-                  <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+                  <Label id="toolbar-label" minWidth="-Infinity" styleClass="toolbar-item" text="OpenVault" textFill="GAINSBORO" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="Corbel Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <fx:include fx:id="searchBox" source="../lib/rich-input/rich-input.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0" />
                </children>
-            </VBox>
+            </AnchorPane>
          </children>
-      </AnchorPane>
+      </VBox>
    </center>
 </BorderPane>
