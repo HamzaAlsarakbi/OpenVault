@@ -1,15 +1,14 @@
-package main.controllers;
+package main.controllers.main;
 
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import main.controllers.lib.RichInputController;
 
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 
@@ -20,6 +19,8 @@ public class MainController implements Initializable {
             lockButton, aboutButton;
     @FXML
     private AnchorPane searchBox;
+    @FXML
+    private RichInputController searchBoxController;
 
     private HBox[] getSidePanelButtons() {
         return new HBox[]{ dashboardButton, loginsButton, pinsButton, authenticationCodesButton,
@@ -75,6 +76,6 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        searchBoxController.setLabel("Search");
     }
 }

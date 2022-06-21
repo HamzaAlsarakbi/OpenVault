@@ -8,7 +8,7 @@ import main.lib.password_strength.PasswordStrength;
 public class Login extends Identification implements main.model.data.credential.PasswordStrength {
     private String alias, password;
     private String[] loginCredential;
-    private static final String[] credentialColumns = {"Type", "Service", "Email/Username", "Password" };
+    private static final String[] credentialColumns = {"Type", "Service", "Username/Email", "Password" };
 
     /**
      * Constructs a Credential object. All inputs are trimed.
@@ -34,6 +34,8 @@ public class Login extends Identification implements main.model.data.credential.
     }
 
     // Getters
+    public String getType() { return type; }
+    public String getService() { return service; }
     public String getAlias() { return alias; }
     public String getPassword() { return password; }
     public String[] getLoginCredential() { return loginCredential; }
@@ -42,7 +44,8 @@ public class Login extends Identification implements main.model.data.credential.
     public void setLoginCredential(String[] loginCredential) throws CredentialInvalidException {
         // Loop through Type, Service, Email/Username and Password
         for(int i = 0; i < loginCredential.length; i++) {
-            checkString(loginCredential[i], credentialColumns[i]);
+            System.out.println(credentialColumns[i] + " " + loginCredential[i]);
+            checkString(credentialColumns[i], loginCredential[i]);
             this.loginCredential[i] = loginCredential[i].trim();
         }
         addToLog("Updated login details.");

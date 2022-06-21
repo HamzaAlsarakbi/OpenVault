@@ -18,6 +18,12 @@ module main {
     exports main.controllers;
     opens main.controllers.lib to javafx.fxml;
     exports main.controllers.lib;
+    opens main.controllers.lib.table to javafx.fxml;
+    exports main.controllers.lib.table;
     opens main to javafx.fxml;
     exports main;
+    exports main.controllers.main;
+    opens main.controllers.main to javafx.fxml;
+    exports main.controllers.main.components;
+    opens main.controllers.main.components to javafx.fxml;
 }

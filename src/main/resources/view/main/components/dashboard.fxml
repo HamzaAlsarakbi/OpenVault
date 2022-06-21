@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox stylesheets="@../../../css/main/components/dashboard.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="Welcome to the dashboard" />
+      <Label layoutX="10.0" layoutY="10.0" text="Still a work in progress." />
+      <Label layoutX="10.0" layoutY="60.0" text="Will be updated once other components are finished." />
+   </children>
+</VBox>

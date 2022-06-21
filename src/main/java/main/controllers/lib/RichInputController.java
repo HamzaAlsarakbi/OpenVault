@@ -3,6 +3,7 @@ package main.controllers.lib;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -17,6 +18,9 @@ public class RichInputController implements Initializable {
     private Label label;
     @FXML
     private TextField textField;
+
+    @FXML
+    private ComboBox personalDropdown;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

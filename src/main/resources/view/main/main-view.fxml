@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="800.0" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="727.0" prefHeight="700.0" prefWidth="787.0" stylesheets="@../../css/main/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.main.MainController">
    <left>
       <AnchorPane prefHeight="550.0" prefWidth="189.0" styleClass="root" stylesheets="@../../css/main/side-panel.css" BorderPane.alignment="CENTER">
          <children>
@@ -233,19 +233,24 @@
       </AnchorPane>
    </left>
    <center>
-      <VBox maxWidth="-Infinity" prefHeight="600.0" prefWidth="968.0" style="-fx-background-color: rgb(30, 30, 30);" BorderPane.alignment="CENTER">
+      <AnchorPane styleClass="content" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane maxHeight="-Infinity" styleClass="toolbar" stylesheets="@../../css/main/toolbar.css">
+            <AnchorPane layoutX="9.0" layoutY="9.0" maxWidth="-Infinity" prefHeight="600.0" prefWidth="968.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label id="toolbar-label" minWidth="-Infinity" styleClass="toolbar-item" text="OpenVault" textFill="GAINSBORO" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <font>
-                        <Font name="Corbel Bold" size="20.0" />
-                     </font>
-                  </Label>
-                  <fx:include fx:id="searchBox" source="../lib/rich-input/rich-input.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0" />
+                  <AnchorPane maxHeight="-Infinity" styleClass="toolbar" stylesheets="@../../css/main/toolbar.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Label id="toolbar-label" minWidth="-Infinity" styleClass="toolbar-item" text="OpenVault" textFill="GAINSBORO" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Corbel Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <fx:include fx:id="searchBox" source="../lib/rich-input/rich-input.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <fx:include source="components/logins.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
                </children>
             </AnchorPane>
          </children>
-      </VBox>
+      </AnchorPane>
    </center>
 </BorderPane>
