@@ -5,6 +5,9 @@ import main.model.data.credential.CredentialInvalidException;
 import main.model.data.credential.identification.Identification;
 import main.lib.password_strength.PasswordStrength;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Login extends Identification implements main.model.data.credential.PasswordStrength {
     private String alias, password;
     private String[] loginCredential;
@@ -19,7 +22,8 @@ public class Login extends Identification implements main.model.data.credential.
      * @throws CredentialInvalidException if an argument is below minimum length (3)
      */
     public Login(String type, String service, String alias, String password) throws CredentialInvalidException {
-        this(new String[]{type, service, alias, password});
+        this(new String[] {type, service, alias, password });
+        System.out.println(type + " " + service +  " " + alias + " " + password);
     }
 
     /***
@@ -29,22 +33,21 @@ public class Login extends Identification implements main.model.data.credential.
      */
     public Login(String[] credential) throws CredentialInvalidException {
         super();
-        this.loginCredential = new String[]{ this.type, this.service, this.alias, this.password };
+        this.loginCredential = new String[4];
         setLoginCredential(credential);
     }
 
     // Getters
-    public String getType() { return type; }
-    public String getService() { return service; }
-    public String getAlias() { return alias; }
-    public String getPassword() { return password; }
+    public String getType() { return loginCredential[0]; }
+    public String getService() { return loginCredential[1]; }
+    public String getAlias() { return loginCredential[2]; }
+    public String getPassword() { return loginCredential[3]; }
     public String[] getLoginCredential() { return loginCredential; }
 
     // Setters
     public void setLoginCredential(String[] loginCredential) throws CredentialInvalidException {
         // Loop through Type, Service, Email/Username and Password
         for(int i = 0; i < loginCredential.length; i++) {
-            System.out.println(credentialColumns[i] + " " + loginCredential[i]);
             checkString(credentialColumns[i], loginCredential[i]);
             this.loginCredential[i] = loginCredential[i].trim();
         }
@@ -55,7 +58,18 @@ public class Login extends Identification implements main.model.data.credential.
     public String toString() {
         return String.format(
                 "Login Credential. Type: \"%s\". Service: \"%s\". Email/Username: \"%s\". Password: \"%s\". Created: %s",
-                type, service, alias, password, getCreationDate().toString());
+                getType(), getService(), getAlias(), getPassword(), getCreationDate().toString());
+    }
+
+    /**
+     * Returns all the data the Login class holds.
+     * @return all the data Login class holds in an ArrayList
+     */
+    @Override
+    public ArrayList<String> getData() {
+
+        System.out.println(this);
+        return new ArrayList<>(Arrays.asList(loginCredential));
     }
 
 

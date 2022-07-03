@@ -4,18 +4,20 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Pair;
 import main.controllers.lib.RichInputController;
-import main.controllers.lib.table.Table;
+import main.controllers.lib.table.CTable;
+import main.controllers.lib.table.CTableColumn;
 import main.model.data.credential.CredentialInvalidException;
-import main.model.data.credential.Credentials;
 import main.model.data.credential.identification.IdentificationType;
 import main.model.data.credential.identification.login.Login;
 
 import java.net.URL;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 public class LoginsController implements Initializable {
@@ -31,7 +33,9 @@ public class LoginsController implements Initializable {
     @FXML
     private ComboBox<String> typeDropdown, columnDropDown;
     @FXML
-    private ListView<String> listView;
+    private VBox rootVBox;
+
+    private CTable dataTable;
 
     private TextField serviceField, aliasField, passwordField;
     private TextField[] textFields;
@@ -51,11 +55,36 @@ public class LoginsController implements Initializable {
         passwordField = passwordBoxController.getTextField();
         textFields = new TextField[]{ serviceField, aliasField, passwordField };
 
-        // ListView
+        // Table
+        buildTable();
+
+
 
 
         // Update
         update(true);
+    }
+
+    private void buildTable() {
+        LinkedList<CTableColumn> list = new LinkedList<>(Arrays.asList(
+                new CTableColumn("Type"), new CTableColumn("Service"),
+                new CTableColumn("Alias"), new CTableColumn("Password")
+        ));
+
+
+        dataTable = new CTable<>(list);
+        rootVBox.getChildren().add(dataTable);
+
+//        try {
+//            Login testLogin = new Login("Personal", "Gmail", "hamza@gmail.com", "hamza.Gmail.Com");
+//            dataTable.addRow(testLogin);
+//        } catch (CredentialInvalidException exception) {
+//            System.out.println("Exception occured!");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+
     }
 
 
@@ -90,12 +119,14 @@ public class LoginsController implements Initializable {
 
     public void addHandler(MouseEvent mouseEvent) {
         errorLabel.setText("");
-//        try {
-//            logins.addCredential(new Login(typeDropdown.getValue(), serviceField.getText(), aliasField.getText(), passwordField.getText()));
-//            clearFields();
-//        } catch(CredentialInvalidException e) {
-//            errorLabel.setText(String.format("%s is empty.", e.getMessage().split(" ")[0]));
-//        }
+        try {
+            dataTable.addRow(new Login(typeDropdown.getValue(), serviceField.getText(), aliasField.getText(), passwordField.getText()));
+            clearFields();
+        } catch(CredentialInvalidException e) {
+            errorLabel.setText(String.format("%s is empty.", e.getMessage().split(" ")[0]));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

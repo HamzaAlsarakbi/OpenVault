@@ -4,6 +4,7 @@ import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
 import main.model.data.credential.list_credential.ListCredential;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Keys extends ListCredential {
@@ -32,5 +33,10 @@ public class Keys extends ListCredential {
     @Override
     public String toString() {
         return String.format("Keys. Service: \"%s\". Keys: %s", service, keys);
+    }
+
+    @Override
+    public ArrayList<String> getData() {
+        return null;
     }
 }

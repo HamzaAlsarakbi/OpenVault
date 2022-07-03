@@ -3,46 +3,33 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane fx:id="root" prefHeight="578.0" prefWidth="603.0" styleClass="root" stylesheets="@../../../css/main/components/logins.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.main.components.LoginsController">
    <children>
-      <HBox layoutX="15.0" layoutY="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="rootVBox" layoutX="10.0" layoutY="10.0" prefHeight="245.0" prefWidth="286.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="245.0" prefWidth="286.0">
+            <Label styleClass="header" text="Passwords" />
+            <VBox maxWidth="400.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label styleClass="header" text="Logins" />
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="19.0" prefWidth="501.0">
                      <children>
-                        <VBox prefHeight="19.0" prefWidth="501.0">
-                           <children>
-                              <ComboBox fx:id="typeDropdown" prefHeight="25.0" prefWidth="291.0" />
-                              <fx:include fx:id="serviceBox" source="../../lib/rich-input/rich-input.fxml" />
-                              <fx:include fx:id="aliasBox" source="../../lib/rich-input/rich-input.fxml" />
-                              <fx:include fx:id="passwordBox" source="../../lib/rich-input/rich-input.fxml" />
-                           </children>
-                        </VBox>
-                        <AnchorPane>
-                           <children>
-                              <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="403.0" styleClass="error" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0" />
-                              <Button fx:id="addButton" mnemonicParsing="false" onMouseClicked="#addHandler" prefHeight="25.0" prefWidth="99.0" text="+ Add" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
+                        <ComboBox fx:id="typeDropdown" prefHeight="25.0" prefWidth="291.0" />
+                        <fx:include fx:id="serviceBox" source="../../lib/rich-input/rich-input.fxml" />
+                        <fx:include fx:id="aliasBox" source="../../lib/rich-input/rich-input.fxml" />
+                        <fx:include fx:id="passwordBox" source="../../lib/rich-input/rich-input.fxml" />
                      </children>
                   </VBox>
-                  <VBox>
+                  <AnchorPane>
                      <children>
-                        <ComboBox fx:id="listDropDown" prefHeight="25.0" prefWidth="287.0" />
-                        <ListView fx:id="listView" VBox.vgrow="ALWAYS" />
+                        <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="403.0" styleClass="error" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0" />
+                        <Button fx:id="addButton" mnemonicParsing="false" onMouseClicked="#addHandler" prefHeight="25.0" prefWidth="99.0" text="+ Add" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
-                  </VBox>
+                  </AnchorPane>
                </children>
             </VBox>
-            <AnchorPane prefHeight="299.0" prefWidth="291.0" />
          </children>
-      </HBox>
+      </VBox>
    </children>
 </AnchorPane>

@@ -4,6 +4,7 @@ import javafx.util.Pair;
 import main.model.data.credential.CredentialInvalidException;
 import main.model.data.credential.list_credential.ListCredential;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class AuthenticationCodes extends ListCredential {
@@ -52,5 +53,10 @@ public class AuthenticationCodes extends ListCredential {
     @Override
     public String toString() {
         return String.format("Authentication Codes. Service: \"%s\". Authentication codes: %s", service, authenticationCodes);
+    }
+
+    @Override
+    public ArrayList<String> getData() {
+        return null;
     }
 }

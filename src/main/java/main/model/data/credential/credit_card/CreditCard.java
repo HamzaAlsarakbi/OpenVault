@@ -3,6 +3,9 @@ package main.model.data.credential.credit_card;
 import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class CreditCard extends Credential {
     private String number, name, nickName;
     private int expiryMonth;
@@ -97,5 +100,10 @@ public class CreditCard extends Credential {
     public String toString() {
         return String.format("Credit Card. Number: %s. Expiry date: %d/%d. Name: \"%s\". Security code: %d. Nickname: \"%s\""
                 , number, expiryMonth, expiryYear, name, securityCode, nickName);
+    }
+
+    @Override
+    public ArrayList<String> getData() {
+        return new ArrayList<String>(Arrays.asList(number, String.valueOf(expiryMonth), String.valueOf(expiryYear), name, String.valueOf(securityCode), nickName));
     }
 }

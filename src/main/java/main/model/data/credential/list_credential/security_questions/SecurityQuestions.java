@@ -4,6 +4,7 @@ import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
 import main.model.data.credential.list_credential.ListCredential;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class SecurityQuestions extends ListCredential {
@@ -39,5 +40,10 @@ public class SecurityQuestions extends ListCredential {
 
     public String toString() {
         return String.format("Security questions. Service: \"%s\". Security questions: %s", service, questions);
+    }
+
+    @Override
+    public ArrayList<String> getData() {
+        return null;
     }
 }

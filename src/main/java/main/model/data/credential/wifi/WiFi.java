@@ -4,6 +4,9 @@ import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
 import main.lib.password_strength.PasswordStrength;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class WiFi extends Credential implements main.model.data.credential.PasswordStrength {
 
     private static final int MIN_LENGTH = 3;
@@ -40,6 +43,11 @@ public class WiFi extends Credential implements main.model.data.credential.Passw
     public String toString() {
         return String.format("WiFi credential. Name: \"%s\". Password: \"%s\". Created: %s",
                 name, password, getCreationDate().toString());
+    }
+
+    @Override
+    public ArrayList<String> getData() {
+        return new ArrayList<String>(Arrays.asList(name, password));
     }
 
     @Override

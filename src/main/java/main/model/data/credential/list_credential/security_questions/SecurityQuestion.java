@@ -3,6 +3,9 @@ package main.model.data.credential.list_credential.security_questions;
 import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class SecurityQuestion extends Credential {
     private String question;
     private String answer;
@@ -34,5 +37,10 @@ public class SecurityQuestion extends Credential {
 
     public String toString() {
         return String.format("Question: \"%s\". Answer: \"%s\"", question, answer);
+    }
+
+    @Override
+    public ArrayList<String> getData() {
+        return new ArrayList<String>(Arrays.asList(question, answer));
     }
 }

@@ -3,6 +3,8 @@ package main.model.data.credential.note;
 import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
 
+import java.util.ArrayList;
+
 public class Note extends Credential {
     private String title;
     private String body;
@@ -38,6 +40,11 @@ public class Note extends Credential {
 
     public String toString() {
         return String.format("Note. Title: \"%s\". Body: \"%s\"", title, body);
+    }
+
+    @Override
+    public ArrayList<String> getData() {
+        return null;
     }
 
 }

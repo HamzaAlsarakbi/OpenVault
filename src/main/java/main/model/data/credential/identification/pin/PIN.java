@@ -3,6 +3,9 @@ package main.model.data.credential.identification.pin;
 import main.model.data.credential.CredentialInvalidException;
 import main.model.data.credential.identification.Identification;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class PIN extends Identification {
     private int pin;
 
@@ -42,5 +45,10 @@ public class PIN extends Identification {
     @Override
     public String toString() {
         return String.format("PIN. Type: \"%s\". Service: \"%s\". PIN: %d", type, service, pin);
+    }
+
+    @Override
+    public ArrayList<String> getData() {
+        return new ArrayList<String>(Arrays.asList(type, service, String.valueOf(pin)));
     }
 }

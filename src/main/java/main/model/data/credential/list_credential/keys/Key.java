@@ -3,6 +3,9 @@ package main.model.data.credential.list_credential.keys;
 import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Key extends Credential {
     private String type;
     private String key;
@@ -28,5 +31,10 @@ public class Key extends Credential {
     @Override
     public String toString() {
         return String.format("Key. Type: \"%s\". Key: \"%s\".", type, key);
+    }
+
+    @Override
+    public ArrayList<String> getData() {
+        return new ArrayList<>(Arrays.asList(type, key));
     }
 }

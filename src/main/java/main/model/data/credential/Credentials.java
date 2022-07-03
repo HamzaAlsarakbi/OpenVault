@@ -2,6 +2,10 @@ package main.model.data.credential;
 
 import java.util.LinkedList;
 
+/**
+ * List of credentials that can be used
+ * @param <T>
+ */
 public class Credentials<T extends Credential> {
     private LinkedList<T> list;
 

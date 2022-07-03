@@ -4,6 +4,9 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Basic building block for all the credentials (Logins, PINs, Authentication Codes, etc.)
+ */
 public abstract class Credential {
     private ArrayList<Pair<Date, String>> changeLog;
     private Date creationDate;
@@ -35,6 +38,7 @@ public abstract class Credential {
     }
     public String getNotes() { return notes; }
     public abstract String toString();
+    public abstract ArrayList<String> getData();
 
     /**
      * Checks string if it is valid.
