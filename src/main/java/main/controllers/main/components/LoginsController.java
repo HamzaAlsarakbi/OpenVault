@@ -66,23 +66,23 @@ public class LoginsController implements Initializable {
     }
 
     private void buildTable() {
-        LinkedList<CTableColumn> list = new LinkedList<>(Arrays.asList(
-                new CTableColumn("Type"), new CTableColumn("Service"),
-                new CTableColumn("Alias"), new CTableColumn("Password")
-        ));
+        dataTable = new CTable<>(new String[] { "Type", "Service", "Email/Username", "Password" });
 
 
-        dataTable = new CTable<>(list);
         rootVBox.getChildren().add(dataTable);
 
-//        try {
-//            Login testLogin = new Login("Personal", "Gmail", "hamza@gmail.com", "hamza.Gmail.Com");
-//            dataTable.addRow(testLogin);
-//        } catch (CredentialInvalidException exception) {
-//            System.out.println("Exception occured!");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            // Temporary
+            dataTable.addRow(new Login("Personal", "Gmail", "haasdmza@gmail.com", "hamza.Gmaa1il.Com"));
+            dataTable.addRow(new Login("Personal", "asd", "hamza@gmasdail.com", "hamzasda.Gmail.Com"));
+            dataTable.addRow(new Login("Personal", "Gmasdaail", "hamza@gmail.com", "hamza.Gmail.Com"));
+            dataTable.addRow(new Login("Personal", "Gmaasdasdil", "hamzaasd@gmail.com", "hamza.asdGmail.Com"));
+        } catch (CredentialInvalidException e) {
+            System.out.println("Exception occured!");
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -128,7 +128,6 @@ public class LoginsController implements Initializable {
             e.printStackTrace();
         }
     }
-
 
 
     private Pair<Boolean, String> areFieldsEmpty() {

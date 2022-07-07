@@ -14,6 +14,7 @@ public class CTableColumn extends AnchorPane {
 
     private VBox cellsVBox;
     private Label headerLabel;
+    private CTable table;
 
 
 
@@ -22,7 +23,7 @@ public class CTableColumn extends AnchorPane {
      * @param header a string representing the header of the column.
      * @param cells the cells
      */
-    public CTableColumn(String header, LinkedList<CTableCell> cells) {
+    public CTableColumn(String header, LinkedList<CTableCell> cells, CTable table) {
         cellsList = new LinkedList<>();
         setCellsList(cells);
 
@@ -30,14 +31,18 @@ public class CTableColumn extends AnchorPane {
         setMinWidth(100);
         setMinHeight(40);
         HBox.setHgrow(this, Priority.ALWAYS);
-        setPadding(new Insets(5, 2, 5, 2));
-        HBox.setMargin(this, new Insets(0, 2, 0, 2));
+//        HBox.setMargin(this, new Insets(0, 2, 0, 2));
 
 
         // Header
         headerLabel = new Label(header);
-        headerLabel.setMinHeight(20);
+        // Style
+        headerLabel.setBorder(new Border(new BorderStroke(Color.WHITE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         headerLabel.setFont(new Font("Arial", 18));
+        headerLabel.setStyle("-fx-font-weight: bold");
+        headerLabel.setTextFill(Color.rgb(250, 250, 250));
+        // Alignment
+        headerLabel.setMinHeight(20);
         headerLabel.setAlignment(Pos.CENTER);
         setTopAnchor(headerLabel, 0.0);
         setLeftAnchor(headerLabel, 0.0);
@@ -51,16 +56,13 @@ public class CTableColumn extends AnchorPane {
         setBottomAnchor(cellsVBox, 0.0);
         setLeftAnchor(cellsVBox, 0.0);
         getChildren().addAll(headerLabel, cellsVBox);
-
-        // Debug
-        setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     /**
      * Constructs a table column object.
      * @param header a string representing the header of the column
      */
-    public CTableColumn(String header) { this(header, new LinkedList<>()); }
+    public CTableColumn(String header, CTable table) { this(header, new LinkedList<>(), table); }
 
     public LinkedList<CTableCell> getCellsList() { return cellsList; }
 
@@ -69,8 +71,9 @@ public class CTableColumn extends AnchorPane {
      * @param cell
      */
     public void addCell(CTableCell cell) {
-        cellsList.add(cell);
-        cellsVBox.getChildren().add(cell);
+        // Add to to the top of the column
+        cellsList.addFirst(cell);
+        cellsVBox.getChildren().add(0, cell);
     }
 
     /**

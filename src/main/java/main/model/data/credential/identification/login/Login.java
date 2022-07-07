@@ -23,7 +23,6 @@ public class Login extends Identification implements main.model.data.credential.
      */
     public Login(String type, String service, String alias, String password) throws CredentialInvalidException {
         this(new String[] {type, service, alias, password });
-        System.out.println(type + " " + service +  " " + alias + " " + password);
     }
 
     /***
@@ -67,8 +66,6 @@ public class Login extends Identification implements main.model.data.credential.
      */
     @Override
     public ArrayList<String> getData() {
-
-        System.out.println(this);
         return new ArrayList<>(Arrays.asList(loginCredential));
     }
 

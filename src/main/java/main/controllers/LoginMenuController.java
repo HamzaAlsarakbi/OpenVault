@@ -7,9 +7,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginController extends Application {
+public class LoginMenuController extends Application {
     private Scene scene;
-    public LoginController(Stage stage) {
+    public LoginMenuController(Stage stage) {
         start(stage);
     }
 

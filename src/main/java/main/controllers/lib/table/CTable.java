@@ -1,6 +1,7 @@
 package main.controllers.lib.table;
 
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import main.controllers.lib.table.CTableColumn;
@@ -23,16 +24,17 @@ public class CTable<T extends Credential> extends AnchorPane {
 
     /**
      * Constructs a Table object.
-     * @param columns a LinkedList of columns
+     * @param columnNames a String array of columns names
      */
-    public CTable(LinkedList<CTableColumn> columns) {
-        this.columns = columns;
+    public CTable(String[] columnNames) {
+        buildColumns(columnNames);
         data = new Credentials<>();
 
         // UI
         // AnchorPane
         setMinWidth(100);
         setMinHeight(20);
+        setMaxWidth(1000);
 
         columnsList = new HBox();
         // Set Constraints.
@@ -42,18 +44,13 @@ public class CTable<T extends Credential> extends AnchorPane {
         setLeftAnchor(columnsList, 0.0);
         getChildren().add(columnsList);
         columnsList.getChildren().addAll(columns);
-
-        // Debug
-        setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
-    /**
-     * Adds a table column to the table.
-     * @param CTableColumn the table column
-     */
-    private void addColumn(CTableColumn CTableColumn) {
-        columns.add(CTableColumn);
-        columnsList.getChildren().add(CTableColumn);
+    private void buildColumns(String[] columnNames) {
+        this.columns = new LinkedList<>();
+        for(String columnName : columnNames) {
+            this.columns.add(new CTableColumn(columnName, this));
+        }
     }
 
 
@@ -65,11 +62,10 @@ public class CTable<T extends Credential> extends AnchorPane {
         ArrayList<String> rowData = row.getData();
         if(rowData != null) {
             if(rowData.size() == columns.size()) {
-                System.out.println(rowData);
                 // Add row data
                 data.addCredential(row);
                 for(int i = 0; i < columns.size(); i++) {
-                    columns.get(i).addCell(new CTableCell(rowData.get(i)));
+                    columns.get(i).addCell(new CTableCell(rowData.get(i), columns.get(i), this));
                 }
             } else {
                 throw new Exception(String.format("Invalid data provided. Expected %d. Provided %d", columns.size(), rowData.size()));
@@ -78,6 +74,24 @@ public class CTable<T extends Credential> extends AnchorPane {
             throw new Exception("called addRow() on a credential with no valid data.");
         }
 
+    }
+
+    /**
+     * Returns an array of the CTableCells that make up the row
+     * @return
+     */
+    public ArrayList<CTableCell> getRowElement(CTableCell queryCell) {
+        ArrayList<CTableCell> cells = new ArrayList<>();
+        int indexOfQueryCell = 0;
+        for(CTableColumn col : columns) {
+            if(col.getCellsList().indexOf(queryCell) != -1) {
+                indexOfQueryCell = col.getCellsList().indexOf(queryCell);
+            }
+        }
+        for(CTableColumn col : columns) {
+            cells.add(col.getCellsList().get(indexOfQueryCell));
+        }
+        return cells;
     }
 
     /**
