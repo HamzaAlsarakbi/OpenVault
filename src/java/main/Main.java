@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import main.controllers.LoginMenuController;
 import main.controllers.main.MainController;
 //import main.controllers.main.MainController;
 
@@ -33,10 +32,14 @@ public class Main extends Application {
     public void startMain(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/main/main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(getClass().getResource("/stylesheets/themes/dark.css").toExternalForm());
+
+        // Stage properties
         stage.setMinWidth(800);
         stage.setMinHeight(750);
         stage.getIcons().add(new Image(Objects.requireNonNull(MainController.class.getResourceAsStream("/icons/openvault/openvault.png"))));
         stage.setTitle("Dashboard - OpenVault");
+
         stage.setScene(scene);
         stage.show();
     }

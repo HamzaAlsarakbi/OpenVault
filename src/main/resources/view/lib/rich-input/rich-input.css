@@ -1,5 +1,5 @@
 AnchorPane.rich-input-root {
-    -fx-background-color: #ffffff08;
+    -fx-background-color: -fx-bg-primary-trans;
     -fx-background-radius: 10;
     -fx-border-width: 2;
     -fx-border-color: rgba(40, 40, 40, 0);
@@ -12,7 +12,7 @@ Label {
 }
 
 AnchorPane.focus {
-    -fx-border-color: transparent transparent #ef931c transparent;
+    -fx-border-color: transparent transparent -accent-primary-comp transparent;
 }
 
 AnchorPane.focus Label {
@@ -20,7 +20,7 @@ AnchorPane.focus Label {
     -fx-scale-y: 0.8;
     -fx-translate-x: 0;
     -fx-translate-y: -3;
-    -fx-text-fill: #f2aa4c;
+    -fx-text-fill: -fx-accent-primary;
 }
 
 TextField {

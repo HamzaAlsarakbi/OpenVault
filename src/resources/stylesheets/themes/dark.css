@@ -1,0 +1,12 @@
+* {
+    /* Accent */
+    -fx-accent-primary: #f2aa4c;
+    -fx-accent-primary-comp: #ef931c;
+
+    /* Fill */
+
+    /* Shadow */
+
+    /* Backgrounds */
+    -fx-bg-primary-trans: #ffffff08;
+}
