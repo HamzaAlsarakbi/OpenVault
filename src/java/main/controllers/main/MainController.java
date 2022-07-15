@@ -2,12 +2,16 @@ package main.controllers.main;
 
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import main.controllers.lib.RichInputController;
+import main.controllers.main.credential_menu.CredentialMenu;
+import main.controllers.main.credential_menu.menus.LoginsController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,16 +25,28 @@ public class MainController implements Initializable {
     private AnchorPane searchBox;
     @FXML
     private RichInputController searchBoxController;
+    @FXML
+    private AnchorPane menuRootAnchor;
 
     private HBox[] getSidePanelButtons() {
         return new HBox[]{ dashboardButton, loginsButton, pinsButton, authenticationCodesButton,
                 securityQuestionsButton, wifiButton, keysButton, creditCardsButton, notesButton, settingsButton,
                 lockButton, aboutButton };
     }
+    private CredentialMenu activeController;
+    private AnchorPane activePane;
 
+    /**
+     * Removes active property on all side-panel buttons.
+     */
     private void resetButtons() {
         for(HBox button : getSidePanelButtons()) { button.getStyleClass().remove("active"); }
     }
+
+    /**
+     * Makes a side-panel button active
+     * @param button the button to be set to active
+     */
     private void setActive(HBox button) {
         resetButtons();
         button.getStyleClass().add("active");
@@ -42,6 +58,15 @@ public class MainController implements Initializable {
     }
     public void loginsHandler(MouseEvent mouseEvent) {
         setActive(loginsButton);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/main/credential_menu/logins.fxml"));
+            activePane = fxmlLoader.load();
+            activeController = fxmlLoader.getController();
+            menuRootAnchor.getChildren().add(activePane);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
     }
     public void pinsHandler(MouseEvent mouseEvent) {
         setActive(pinsButton);

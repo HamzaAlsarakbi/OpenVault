@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import main.controllers.LoginMenuController;
 import main.controllers.main.MainController;
+//import main.controllers.main.MainController;
 
 
 import java.io.IOException;
@@ -19,7 +21,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-//        LoginController loginController = new LoginController(stage);
+//        LoginMenuController loginController = new LoginMenuController(stage);
         try {
             startMain(stage);
         } catch(IOException e) {

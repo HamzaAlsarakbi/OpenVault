@@ -66,11 +66,12 @@ public class CTableCell extends AnchorPane {
     }
     private void mouseClickHandler(MouseEvent mouseEvent) {
         System.out.println("Cell clicked!");
+        System.out.println(table.getRowElement(this));
     }
 
     @Override
     public String toString() {
-        return String.format("Table Column. Content: \"%s\"", label.getText());
+        return String.format("Table cell. Content: \"%s\"", label.getText());
     }
 
 

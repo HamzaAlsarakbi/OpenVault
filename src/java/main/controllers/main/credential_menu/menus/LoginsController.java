@@ -1,8 +1,10 @@
-package main.controllers.main.components;
+package main.controllers.main.credential_menu.menus;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -10,18 +12,15 @@ import javafx.scene.layout.VBox;
 import javafx.util.Pair;
 import main.controllers.lib.RichInputController;
 import main.controllers.lib.table.CTable;
-import main.controllers.lib.table.CTableColumn;
+import main.controllers.main.credential_menu.CredentialMenu;
 import main.model.data.credential.CredentialInvalidException;
 import main.model.data.credential.identification.IdentificationType;
 import main.model.data.credential.identification.login.Login;
 
 import java.net.URL;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.ResourceBundle;
 
-public class LoginsController implements Initializable {
-
+public class LoginsController extends CredentialMenu implements Initializable {
     @FXML
     private AnchorPane root, serviceBox, aliasBox, passwordBox;
     @FXML
@@ -41,6 +40,11 @@ public class LoginsController implements Initializable {
     private TextField[] textFields;
 
     private final String[] STRING_FIELDS = { "Service", "Username/Email", "Password" };
+
+    public LoginsController() {
+        super();
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

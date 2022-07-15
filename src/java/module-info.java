@@ -22,8 +22,10 @@ module main {
     exports main;
     exports main.controllers.main;
     opens main.controllers.main to javafx.fxml;
-    exports main.controllers.main.components;
-    opens main.controllers.main.components to javafx.fxml;
+    exports main.controllers.main.credential_menu;
+    opens main.controllers.main.credential_menu to javafx.fxml;
     exports main.controllers.lib.table;
     opens main.controllers.lib.table to javafx.fxml;
+    exports main.controllers.main.credential_menu.menus;
+    opens main.controllers.main.credential_menu.menus to javafx.fxml;
 }

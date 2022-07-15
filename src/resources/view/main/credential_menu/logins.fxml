@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="root" prefHeight="578.0" prefWidth="603.0" styleClass="root" stylesheets="@../../../style/main/components/logins.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.main.components.LoginsController">
+<AnchorPane fx:id="root" prefHeight="578.0" prefWidth="603.0" styleClass="root" stylesheets="@../../../style/main/components/logins.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.main.credential_menu.menus.LoginsController">
    <children>
       <VBox fx:id="rootVBox" layoutX="10.0" layoutY="10.0" prefHeight="245.0" prefWidth="286.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
