@@ -1,0 +1,31 @@
+.root {
+    -fx-padding: 10;
+    -fx-background-color: transparent;
+}
+
+Label.header {
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(240, 240, 240);
+}
+
+Label.error {
+    -fx-text-fill: rgb(255, 50, 50);
+    -fx-font-size: 14;
+}
+
+Button {
+    -fx-background-color: linear-gradient(
+        from 0% 0% to 100% 200%,
+        repeat,
+        -fx-accent-primary 0%,
+        -fx-accent-primary-mono 50%
+    );
+    -fx-text-fill: rgb(240, 240, 240);
+}
+ComboBox {
+    -fx-min-width: 100;
+}
+Button:pressed {
+    -fx-background-color: green;
+}

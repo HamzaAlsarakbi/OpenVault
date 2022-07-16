@@ -12,20 +12,20 @@ module main {
     requires eu.hansolo.tilesfx;
     requires org.junit.jupiter.api;
 
-    exports main.lib;
-    opens main.lib to javafx.fxml;
+    exports main.model.lib;
+    opens main.model.lib to javafx.fxml;
     opens main.controllers to javafx.fxml;
     exports main.controllers;
     opens main.controllers.lib to javafx.fxml;
     exports main.controllers.lib;
     opens main to javafx.fxml;
     exports main;
-    exports main.controllers.main;
-    opens main.controllers.main to javafx.fxml;
-    exports main.controllers.main.credential_menu;
-    opens main.controllers.main.credential_menu to javafx.fxml;
+    exports main.controllers.main_window;
+    opens main.controllers.main_window to javafx.fxml;
+    exports main.controllers.main_window.credential_menu;
+    opens main.controllers.main_window.credential_menu to javafx.fxml;
     exports main.controllers.lib.table;
     opens main.controllers.lib.table to javafx.fxml;
-    exports main.controllers.main.credential_menu.menus;
-    opens main.controllers.main.credential_menu.menus to javafx.fxml;
+    exports main.controllers.main_window.credential_menu.menus;
+    opens main.controllers.main_window.credential_menu.menus to javafx.fxml;
 }

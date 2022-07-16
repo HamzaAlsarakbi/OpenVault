@@ -1,12 +1,29 @@
 * {
     /* Accent */
-    -fx-accent-primary: #f2aa4c;
-    -fx-accent-primary-comp: #ef931c;
+    -fx-accent-primary: rgb(70, 100, 235);
+    -fx-accent-primary-mono: rgb(74, 103, 233);
+    -fx-accent-comp: #ebcd46;
 
     /* Fill */
+    -fx-fill-primary: rgb(250, 250, 250);
+    -fx-fill-secondary: rgb(220, 220, 220);
+    -fx-fill-tertiary: rgb(190, 190, 190);
+    -fx-fill-quaternary: rgb(150, 150, 150);
 
     /* Shadow */
 
+    /* Border */
+    -fx-border-primary: rgb(50, 50, 50);
+
     /* Backgrounds */
     -fx-bg-primary-trans: #ffffff08;
+    -fx-bg-primary: rgb(20, 20, 20);
+    -fx-bg-secondary: rgb(25, 25, 25);
+    -fx-bg-tertiary: rgb(30, 30, 30);
+    -fx-bg-quaternary: rgb(35, 35, 35);
+    -fx-bg-secondary-grad: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(35, 35, 35) 0%, rgb(20, 20, 20) 50%);
+}
+
+Button {
+    -fx-background-radius: 5;
 }

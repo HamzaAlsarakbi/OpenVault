@@ -2,7 +2,7 @@ package main.model.data.credential.wifi;
 
 import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
-import main.lib.password_strength.PasswordStrength;
+import main.model.lib.password_strength.PasswordStrength;
 
 import java.util.ArrayList;
 import java.util.Arrays;

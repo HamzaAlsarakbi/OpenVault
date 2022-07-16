@@ -1,0 +1,60 @@
+.root {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, reflect, -fx-bg-tertiary 0%, -fx-bg-quaternary 50%);
+}
+
+HBox {
+    -fx-padding: 10 10 10 10;
+    -fx-background-radius: 0 20px 20px 0;
+    -fx-pref-height: 40px;
+    -fx-min-height: 40px;
+    -fx-max-height: 40px;
+    -fx-padding: 10px;
+    -fx-background-insets: 1px;
+}
+HBox.active {
+    -fx-background-color: linear-gradient(
+        from 0% 0% to 100% 200%,
+        repeat,
+        -fx-accent-primary 0%,
+        -fx-accent-primary-mono 50%
+    );
+    -fx-effect: dropshadow(three-pass-box, rgba(20, 20, 20, 0.5), 10, 0, 0, 0);
+}
+HBox:hover {
+    -fx-cursor: hand;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(40, 40, 40) 0%, rgb(45, 45, 45) 50%);
+}
+HBox.active Label {
+    -fx-text-fill: -fx-fill-primary;
+}
+Label.header {
+    -fx-font: 18px Tahoma;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 10 10;
+    -fx-text-fill: -fx-fill-tertiary;
+    /* -fx-background-color: rgb(30, 30, 30); */
+    -fx-background-radius: 20px 20px 0 0;
+    -fx-pref-width: 200;
+}
+
+HBox Label {
+    -fx-background-color: transparent;
+    -fx-font: 14px Tahoma;
+    -fx-border: none;
+    -fx-text-fill: -fx-fill-quaternary;
+    -fx-padding: 0 0 0 8;
+}
+
+HBox:hover Label {
+    -fx-text-fill: -fx-fill-tertiary;
+}
+
+.icon {
+    -fx-margin: 50 10 10 10;
+    -fx-pref-height: 100;
+}
+
+VBox {
+    /* -fx-background-color: rgb(40, 40, 40); */
+    -fx-background-radius: 20px;
+}

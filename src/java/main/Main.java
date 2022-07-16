@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import main.controllers.main.MainController;
-//import main.controllers.main.MainController;
+import main.controllers.main_window.MainWindowController;
+
 
 
 import java.io.IOException;
@@ -20,24 +20,25 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-//        LoginMenuController loginController = new LoginMenuController(stage);
+//        LoginWindowController loginController = new LoginWindowController(stage);
         try {
             startMain(stage);
         } catch(IOException e) {
             e.printStackTrace();
+            System.exit(1);
             System.out.println("Error while loading main view");
         }
 
     }
     public void startMain(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/main/main-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/main_window/main_window.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(getClass().getResource("/stylesheets/themes/dark.css").toExternalForm());
 
         // Stage properties
         stage.setMinWidth(800);
         stage.setMinHeight(750);
-        stage.getIcons().add(new Image(Objects.requireNonNull(MainController.class.getResourceAsStream("/icons/openvault/openvault.png"))));
+        stage.getIcons().add(new Image(Objects.requireNonNull(MainWindowController.class.getResourceAsStream("/icons/openvault/openvault.png"))));
         stage.setTitle("Dashboard - OpenVault");
 
         stage.setScene(scene);

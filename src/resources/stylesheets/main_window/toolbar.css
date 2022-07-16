@@ -1,0 +1,12 @@
+/* @import url("../themes/dark.css"); */
+.toolbar {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 200%, repeat, #181d39 0%, rgb(32, 38, 75) 9 50%);
+    /* -fx-padding: 10; */
+    /* -fx-max-height: 50; */
+}
+
+AnchorPane {
+    -fx-padding: 5;
+    -fx-inset: 5;
+}

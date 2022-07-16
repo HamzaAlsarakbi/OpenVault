@@ -3,7 +3,7 @@ package main.model.data.credential.identification.login;
 
 import main.model.data.credential.CredentialInvalidException;
 import main.model.data.credential.identification.Identification;
-import main.lib.password_strength.PasswordStrength;
+import main.model.lib.password_strength.PasswordStrength;
 
 import java.util.ArrayList;
 import java.util.Arrays;
