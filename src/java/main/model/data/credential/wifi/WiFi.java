@@ -2,6 +2,7 @@ package main.model.data.credential.wifi;
 
 import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
+import main.model.data.log.LogTitle;
 import main.model.lib.password_strength.PasswordStrength;
 
 import java.util.ArrayList;
@@ -36,7 +37,11 @@ public class WiFi extends Credential implements main.model.data.credential.Passw
             // Add credential.
             this.wifiCredential[i] = credential[i];
         }
-        addToLog("Updated wifi details.");
+        try {
+            addToLog(LogTitle.EDITED, "You updated this entry.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

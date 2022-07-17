@@ -21,6 +21,7 @@
     -fx-bg-secondary: rgb(25, 25, 25);
     -fx-bg-tertiary: rgb(30, 30, 30);
     -fx-bg-quaternary: rgb(35, 35, 35);
+    -fx-bg-quinary: rgb(40, 40, 40);
     -fx-bg-secondary-grad: linear-gradient(from 0% 0% to 100% 200%, repeat, rgb(35, 35, 35) 0%, rgb(20, 20, 20) 50%);
 }
 
@@ -29,7 +30,7 @@ Button {
 }
 
 .header {
-    -fx-font: 18px Tahoma;
+    -fx-font: 18px Inter;
     -fx-font-weight: bold;
     -fx-padding: 10 0 10 10;
     -fx-text-fill: -fx-fill-primary;

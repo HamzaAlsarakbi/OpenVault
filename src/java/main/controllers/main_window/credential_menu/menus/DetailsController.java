@@ -1,35 +1,42 @@
 package main.controllers.main_window.credential_menu.menus;
 
-import javafx.collections.ObservableArray;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Pair;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import main.controllers.lib.list.CList;
 import main.model.data.credential.Credential;
+import main.model.data.log.LogEntry;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class DetailsController implements Initializable {
     @FXML
     private AnchorPane root, detailsRootPane;
+    @FXML
+    private VBox historyVBox;
     private AnchorPane credentialDetailsPane;
     private FXMLLoader detailsFXML;
     private CredentialDetailsController credentialDetailsController;
     private boolean initializedPane;
     private boolean initializedCredential;
     private Credential credential;
+    private ArrayList<LogEntry> changeLog;
+    private CList logList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initializedPane = false;
         initializedCredential = false;
+    }
+
+    private void initializeLog() {
+
     }
 
     /**
@@ -64,8 +71,14 @@ public class DetailsController implements Initializable {
     }
 
     private void updateLogList() {
-        ArrayList<Pair<Date, String>> list = credential.getChangeLog();
+        ArrayList<LogEntry> list = credential.getChangeLog();
 
+        // Make a log list if there isn't one
+        if(logList == null) {
+            logList = new CList(list);
+            historyVBox.getChildren().add(logList);
+            VBox.setVgrow(logList, Priority.ALWAYS);
+        }
 
     }
 }

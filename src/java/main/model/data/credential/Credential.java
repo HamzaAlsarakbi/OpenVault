@@ -1,6 +1,8 @@
 package main.model.data.credential;
 
-import javafx.util.Pair;
+import main.model.data.log.LogEntry;
+import main.model.data.log.LogTitle;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -8,30 +10,33 @@ import java.util.Date;
  * Basic building block for all the credentials (Logins, PINs, Authentication Codes, etc.)
  */
 public abstract class Credential {
-    private ArrayList<Pair<Date, String>> changeLog;
+    private ArrayList<LogEntry> changeLog;
     private Date creationDate;
     private String notes;
     public static final int MIN_LENGTH = 2;
     private boolean favourite;
 
     public Credential() {
-        changeLog = new ArrayList<Pair<Date, String>>();
+        changeLog = new ArrayList<>();
         creationDate = new Date();
-        changeLog.add(new Pair<Date, String>(new Date(), "Credential created"));
+        try {
+            changeLog.add(new LogEntry(LogTitle.CREATED, "You created this entry."));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         notes = "";
         favourite = false;
     }
 
     /**
      * Adds an event to the log.
-     * @param event event message
+     * @param title title of the change (CREATED, EDITED, ADDED_TO_FAV, REMOVED_FROM_FAV, DELETED)
+     * @param description a brief description of the change
      */
-    protected void addToLog(String event) {
-        if(event == null) return;
-        if(event.equals("")) return;
-        changeLog.add(new Pair<Date, String>(new Date(), event));
+    protected void addToLog(LogTitle title, String description) throws Exception {
+        changeLog.add(0, new LogEntry(title, description));
     }
-    public ArrayList<Pair<Date, String>> getChangeLog() { return changeLog; }
+    public ArrayList<LogEntry> getChangeLog() { return changeLog; }
     public Date getCreationDate() { return creationDate; }
 
     public void setNotes(String notes) throws CredentialInvalidException {
@@ -59,8 +64,19 @@ public abstract class Credential {
         }
     }
 
-    public void toggleFavourite() { favourite = !favourite; }
-    public void setFavourite(Boolean newFavourite) { favourite = newFavourite; }
+    public void toggleFavourite() { setFavourite(!favourite); }
+    public void setFavourite(Boolean newFavourite) {
+        favourite = newFavourite;
+        try {
+            if(favourite) {
+                    addToLog(LogTitle.ADDED_TO_FAV, "You added this entry to your favourites.");
+            } else {
+                    addToLog(LogTitle.REMOVED_FROM_FAV, "You removed this entry from your favourites.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public boolean getFavourite() { return favourite; }
 
     /**

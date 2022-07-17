@@ -1,0 +1,69 @@
+/* This file contains all CSS properties for CList.java */
+/* List */
+.root {
+    -fx-min-width: 300;
+    -fx-min-height: 100;
+    -fx-background-radius: 10;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+.scroll-pane {
+    -fx-background-radius: 10;
+    -fx-padding: 0;
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
+    -fx-focus-color: transparent;
+}
+.scroll-pane * {
+    -fx-background-color: transparent;
+}
+.scroll-bar:vertical {
+    -fx-background-color: -fx-bg-secondary;
+    -fx-background-radius: 0 10 10 0;
+    -fx-padding: 2 2 2 0;
+    -fx-scale-x: 1.075;
+    -fx-scale-y: 1.01;
+    -fx-translate-x: 0.5;
+}
+.scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-bg-quinary;
+    -fx-background-radius: 10;
+    -fx-pref-width: 15;
+}
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-pref-height: 0;
+    -fx-opacity: 0;
+}
+
+.vbox-pane {
+    -fx-background-color: -fx-bg-quaternary;
+    -fx-background-radius: 10 0 0 10;
+}
+
+/* List item */
+.item {
+    -fx-min-width: 150;
+    -fx-min-height: 60;
+    -fx-background-color: -fx-bg-quinary;
+    -fx-padding: 2 5 2 5;
+    -fx-border-insets: 2 0 2 0;
+    -fx-background-insets: 2 0 2 0;
+    -fx-background-radius: 10;
+}
+
+.title {
+    -fx-text-fill: -fx-fill-primary;
+    -fx-font: 16px Inter;
+    -fx-font-weight: bold;
+}
+.description {
+    -fx-text-fill: -fx-fill-tertiary;
+    -fx-font: 12px Inter;
+}
+.date {
+    -fx-text-fill: -fx-fill-quaternary;
+    -fx-font: 10px Inter;
+    -fx-font-weight: lighter;
+}

@@ -1,5 +1,6 @@
 .container {
     -fx-padding: 10;
+    -fx-background-color: transparent;
 }
 
 .section-container {
@@ -7,12 +8,12 @@
 }
 
 .subheader {
-    -fx-font: 16px Tahoma;
+    -fx-font: 16px Inter;
     -fx-text-fill: -fx-fill-secondary;
 }
 
 .copy {
-    -fx-font: 10px Tahoma;
+    -fx-font: 10px Inter;
     -fx-font-weight: lighter;
     -fx-padding: 0 0 0 10;
     -fx-text-fill: -fx-fill-quaternary;
@@ -33,8 +34,4 @@
 .value-container {
     -fx-alignment: center-left;
     -fx-padding: 5;
-}
-
-.history-list:even {
-    -fx-background-color: red;
 }

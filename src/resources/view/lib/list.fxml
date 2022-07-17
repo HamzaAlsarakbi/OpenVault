@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane fx:id="root" minHeight="50.0" minWidth="50.0" prefHeight="100.0" prefWidth="100.0" stylesheets="@../../stylesheets/lib/list.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.lib.list.CList">
+   <children>
+      <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <content>
+            <VBox fx:id="itemsRootPane" alignment="TOP_CENTER" />
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

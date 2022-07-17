@@ -2,6 +2,7 @@ package main.model.data.credential.note;
 
 import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
+import main.model.data.log.LogTitle;
 
 import java.util.ArrayList;
 
@@ -32,7 +33,11 @@ public class Note extends Credential {
         checkString(body, "Body", 0);
         this.body = body.trim();
 
-        addToLog("Updated note.");
+        try {
+            addToLog(LogTitle.EDITED, "You edited this note.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     // Getters
     public String getTitle() { return title; }

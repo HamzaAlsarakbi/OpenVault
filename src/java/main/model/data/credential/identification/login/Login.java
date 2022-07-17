@@ -3,6 +3,7 @@ package main.model.data.credential.identification.login;
 
 import main.model.data.credential.CredentialInvalidException;
 import main.model.data.credential.identification.Identification;
+import main.model.data.log.LogTitle;
 import main.model.lib.password_strength.PasswordStrength;
 
 import java.util.ArrayList;
@@ -50,7 +51,11 @@ public class Login extends Identification implements main.model.data.credential.
             checkString(credentialColumns[i], loginCredential[i]);
             this.loginCredential[i] = loginCredential[i].trim();
         }
-        addToLog("Updated login details.");
+        try {
+            addToLog(LogTitle.EDITED, "You updated this entry.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

@@ -2,6 +2,7 @@ package main.model.data.credential.identification.pin;
 
 import main.model.data.credential.CredentialInvalidException;
 import main.model.data.credential.identification.Identification;
+import main.model.data.log.LogTitle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,7 +38,11 @@ public class PIN extends Identification {
 
         if(pin < 0) throw new CredentialInvalidException("PIN must be a positive integer. Received " + pin);
         this.pin = pin;
-        addToLog("Updated PIN.");
+        try {
+            addToLog(LogTitle.EDITED, "You updated this PIN.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public int getPin() { return pin; }
