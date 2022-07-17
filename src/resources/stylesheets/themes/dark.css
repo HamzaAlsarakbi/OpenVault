@@ -27,3 +27,11 @@
 Button {
     -fx-background-radius: 5;
 }
+
+.header {
+    -fx-font: 18px Tahoma;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 10 10;
+    -fx-text-fill: -fx-fill-primary;
+    -fx-pref-width: 200;
+}

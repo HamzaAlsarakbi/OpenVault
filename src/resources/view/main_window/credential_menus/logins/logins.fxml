@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="root" prefHeight="578.0" prefWidth="603.0" styleClass="root" stylesheets="@../../../stylesheets/main_window/credential_menus/logins.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.main_window.credential_menu.menus.LoginsController">
+<AnchorPane fx:id="root" prefHeight="578.0" prefWidth="603.0" styleClass="root" stylesheets="@../../../../stylesheets/main_window/credential_menus/logins.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.main_window.credential_menu.menus.logins.LoginsController">
    <children>
       <VBox fx:id="rootVBox" layoutX="10.0" layoutY="10.0" prefHeight="245.0" prefWidth="286.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -16,9 +16,9 @@
                   <VBox prefHeight="19.0" prefWidth="501.0">
                      <children>
                         <ComboBox fx:id="typeDropdown" prefHeight="25.0" prefWidth="291.0" />
-                        <fx:include fx:id="serviceBox" source="../../lib/rich_input.fxml" />
-                        <fx:include fx:id="aliasBox" source="../../lib/rich_input.fxml" />
-                        <fx:include fx:id="passwordBox" source="../../lib/rich_input.fxml" />
+                        <fx:include fx:id="serviceBox" source="../../../lib/rich_input.fxml" />
+                        <fx:include fx:id="aliasBox" source="../../../lib/rich_input.fxml" />
+                        <fx:include fx:id="passwordBox" source="../../../lib/rich_input.fxml" />
                      </children>
                   </VBox>
                   <AnchorPane>

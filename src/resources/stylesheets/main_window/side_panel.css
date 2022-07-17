@@ -32,7 +32,6 @@ Label.header {
     -fx-font-weight: bold;
     -fx-padding: 10 0 10 10;
     -fx-text-fill: -fx-fill-tertiary;
-    /* -fx-background-color: rgb(30, 30, 30); */
     -fx-background-radius: 20px 20px 0 0;
     -fx-pref-width: 200;
 }

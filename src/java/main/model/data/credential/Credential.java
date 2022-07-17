@@ -12,12 +12,14 @@ public abstract class Credential {
     private Date creationDate;
     private String notes;
     public static final int MIN_LENGTH = 2;
+    private boolean favourite;
 
     public Credential() {
         changeLog = new ArrayList<Pair<Date, String>>();
         creationDate = new Date();
         changeLog.add(new Pair<Date, String>(new Date(), "Credential created"));
         notes = "";
+        favourite = false;
     }
 
     /**
@@ -56,6 +58,10 @@ public abstract class Credential {
                     String.format("%s is too short. Must be at least %d characters long", type, minLength));
         }
     }
+
+    public void toggleFavourite() { favourite = !favourite; }
+    public void setFavourite(Boolean newFavourite) { favourite = newFavourite; }
+    public boolean getFavourite() { return favourite; }
 
     /**
      * Checks string if it is valid.

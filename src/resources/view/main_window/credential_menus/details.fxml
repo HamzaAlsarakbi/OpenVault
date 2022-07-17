@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="600.0" stylesheets="@../../../stylesheets/main_window/details.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.main_window.credential_menu.menus.DetailsController">
+   <children>
+      <VBox layoutX="106.0" layoutY="79.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="container">
+               <children>
+                  <Label styleClass="header" text="Details" />
+                  <AnchorPane fx:id="detailsRootPane" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="container" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label styleClass="header" text="History" />
+                  <ListView fx:id="logList" prefHeight="200.0" prefWidth="200.0" styleClass="history-list" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

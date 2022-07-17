@@ -1,0 +1,40 @@
+.container {
+    -fx-padding: 10;
+}
+
+.section-container {
+    -fx-padding: 10px;
+}
+
+.subheader {
+    -fx-font: 16px Tahoma;
+    -fx-text-fill: -fx-fill-secondary;
+}
+
+.copy {
+    -fx-font: 10px Tahoma;
+    -fx-font-weight: lighter;
+    -fx-padding: 0 0 0 10;
+    -fx-text-fill: -fx-fill-quaternary;
+}
+
+.copy:hover {
+    -fx-cursor: hand;
+    -fx-underline: true;
+}
+
+.value {
+    -fx-text-fill: -fx-fill-secondary;
+}
+.value:hover {
+    -fx-cursor: text;
+}
+
+.value-container {
+    -fx-alignment: center-left;
+    -fx-padding: 5;
+}
+
+.history-list:even {
+    -fx-background-color: red;
+}

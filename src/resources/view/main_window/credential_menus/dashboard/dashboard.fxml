@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<VBox stylesheets="@../../../stylesheets/main/components/dashboard.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox stylesheets="../../../../stylesheets/main_window/credential_menus/dashboard.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label text="Welcome to the dashboard" />
       <Label layoutX="10.0" layoutY="10.0" text="Still a work in progress." />

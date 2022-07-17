@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import main.controllers.lib.table.CTableColumn;
+import main.controllers.main_window.credential_menu.CredentialMenu;
 import main.model.data.credential.Credential;
 import main.model.data.credential.Credentials;
 
@@ -12,9 +13,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class CTable<T extends Credential> extends AnchorPane {
-
-
-    // FXML
     private HBox columnsList;
 
 
@@ -22,11 +20,15 @@ public class CTable<T extends Credential> extends AnchorPane {
     private LinkedList<CTableColumn> columns;
     private Credentials<T> data;
 
+    // The controller that uses this table (LoginsController, etc.)
+    private CredentialMenu controller;
+
     /**
      * Constructs a Table object.
      * @param columnNames a String array of columns names
+     * @param controller the controller that uses the table (this). Used for onClick events
      */
-    public CTable(String[] columnNames) {
+    public CTable(String[] columnNames, CredentialMenu controller) {
         buildColumns(columnNames);
         data = new Credentials<>();
 
@@ -44,6 +46,9 @@ public class CTable<T extends Credential> extends AnchorPane {
         setLeftAnchor(columnsList, 0.0);
         getChildren().add(columnsList);
         columnsList.getChildren().addAll(columns);
+
+        // set controller that uses this table
+        this.controller = controller;
     }
 
     private void buildColumns(String[] columnNames) {
@@ -81,17 +86,29 @@ public class CTable<T extends Credential> extends AnchorPane {
      * @return
      */
     public ArrayList<CTableCell> getRowElement(CTableCell queryCell) {
-        ArrayList<CTableCell> cells = new ArrayList<>();
+        ArrayList<CTableCell> row = new ArrayList<>();
         int indexOfQueryCell = 0;
+        // Find in which column queryCell is in
         for(CTableColumn col : columns) {
             if(col.getCellsList().indexOf(queryCell) != -1) {
                 indexOfQueryCell = col.getCellsList().indexOf(queryCell);
             }
         }
+        // Add the neighboring row cells into the arraylist
         for(CTableColumn col : columns) {
-            cells.add(col.getCellsList().get(indexOfQueryCell));
+            row.add(col.getCellsList().get(indexOfQueryCell));
         }
-        return cells;
+        return row;
+    }
+
+    /**
+     * Returns data entry from a given row.
+     * @param rowElement an ArrayList of row table cells
+     * @return the data entry related to the row table cells
+     */
+    public T getDataEntryFromRowElement(ArrayList<CTableCell> rowElement) {
+        int indexOfCell = columns.get(0).getCellsList().indexOf(rowElement.get(0));
+        return data.getList().get(indexOfCell);
     }
 
     /**
@@ -105,4 +122,12 @@ public class CTable<T extends Credential> extends AnchorPane {
      * @return a LinkedList of table columns
      */
     public LinkedList<CTableColumn> getColumns() { return columns; }
+
+    /**
+     * Calls controller to open the details pane for this row
+     * @param rowElement
+     */
+    public void openDetailsPane(ArrayList rowElement) {
+        controller.openDetailsPane(getDataEntryFromRowElement(rowElement));
+    }
 }

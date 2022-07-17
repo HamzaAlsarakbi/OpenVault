@@ -1,7 +1,8 @@
-package main.controllers.main_window.credential_menu.menus;
+package main.controllers.main_window.credential_menu.menus.logins;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -11,11 +12,14 @@ import javafx.util.Pair;
 import main.controllers.lib.RichInputController;
 import main.controllers.lib.table.CTable;
 import main.controllers.main_window.credential_menu.CredentialMenu;
+import main.controllers.main_window.credential_menu.menus.DetailsController;
+import main.model.data.credential.Credential;
 import main.model.data.credential.CredentialInvalidException;
 import main.model.data.credential.identification.IdentificationType;
 import main.model.data.credential.identification.login.Login;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LoginsController extends CredentialMenu implements Initializable {
@@ -45,6 +49,12 @@ public class LoginsController extends CredentialMenu implements Initializable {
     }
 
     @Override
+    public void openDetailsPane(Credential login) {
+        FXMLLoader loginDetails = new FXMLLoader(getClass().getResource("/view/main_window/credential_menus/logins/login_details.fxml"));
+        getParentController().openDetailsPane(login, loginDetails);
+    }
+
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Labels
         serviceBoxController.setLabel("Service");
@@ -68,7 +78,7 @@ public class LoginsController extends CredentialMenu implements Initializable {
     }
 
     private void buildTable() {
-        dataTable = new CTable<>(new String[] { "Type", "Service", "Email/Username", "Password" });
+        dataTable = new CTable<>(new String[] { "Type", "Service", "Email/Username", "Password" }, this);
 
 
         rootVBox.getChildren().add(dataTable);
@@ -85,7 +95,6 @@ public class LoginsController extends CredentialMenu implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
     }
 

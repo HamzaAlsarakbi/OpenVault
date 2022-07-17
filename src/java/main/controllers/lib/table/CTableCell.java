@@ -66,7 +66,8 @@ public class CTableCell extends AnchorPane {
     }
     private void mouseClickHandler(MouseEvent mouseEvent) {
         System.out.println("Cell clicked!");
-        System.out.println(table.getRowElement(this));
+
+        table.openDetailsPane(table.getRowElement(this));
     }
 
     @Override

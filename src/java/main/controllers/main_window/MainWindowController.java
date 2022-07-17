@@ -9,12 +9,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import main.controllers.lib.RichInputController;
 import main.controllers.main_window.credential_menu.CredentialMenu;
-import main.controllers.main_window.credential_menu.menus.LoginsController;
+import main.controllers.main_window.credential_menu.menus.CredentialDetailsController;
+import main.controllers.main_window.credential_menu.menus.DetailsController;
+import main.controllers.main_window.credential_menu.menus.logins.LoginsController;
+import main.model.data.credential.Credential;
+import main.model.data.credential.CredentialInvalidException;
 import main.model.data.credential.identification.login.Login;
 
-import javax.security.auth.login.LoginContext;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -36,7 +40,9 @@ public class MainWindowController implements Initializable {
                 lockButton, aboutButton };
     }
     private CredentialMenu activeController;
-    private AnchorPane activePane;
+    private AnchorPane activePane, detailsPane;
+    private DetailsController detailsController;
+    private CredentialDetailsController credentialDetailsController;
 
     /**
      * Removes active property on all side-panel buttons.
@@ -65,13 +71,20 @@ public class MainWindowController implements Initializable {
             clearActiveMenu();
             // Load the Logins FXML file.
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/main_window/credential_menus/logins.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/main_window/credential_menus/logins/logins.fxml"));
                 activePane = fxmlLoader.load();
                 activeController = fxmlLoader.getController();
+                activeController.setParentController(this);
                 menuRootAnchor.getChildren().add(activePane);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        // Temp
+        try {
+            activeController.openDetailsPane(new Login("Personal", "Gmaasdasdil", "hamzaasd@gmail.com", "hamza.asdGmail.Com"));
+        } catch (CredentialInvalidException e) {
+            e.printStackTrace();
         }
     }
 
@@ -82,6 +95,8 @@ public class MainWindowController implements Initializable {
     private void clearActiveMenu() {
         activeController = null;
         activePane = null;
+        detailsController = null;
+        detailsPane = null;
         menuRootAnchor.getChildren().clear();
     }
 
@@ -120,5 +135,21 @@ public class MainWindowController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         searchBoxController.setLabel("Search");
         loginsHandler(null);
+    }
+
+    public void openDetailsPane(Credential credential, FXMLLoader loginDetailsFXML) {
+        activePane.setVisible(false);
+        FXMLLoader detailsFXML = new FXMLLoader(getClass().getResource("/view/main_window/credential_menus/details.fxml"));
+        try {
+            detailsPane = detailsFXML.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.detailsController = detailsFXML.getController();
+        menuRootAnchor.getChildren().add(detailsPane);
+
+        // setup details pane
+        detailsController.addCredentialDetailsPane(loginDetailsFXML);
+        detailsController.addCredential(credential);
     }
 }

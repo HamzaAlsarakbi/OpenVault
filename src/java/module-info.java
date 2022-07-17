@@ -28,4 +28,6 @@ module main {
     opens main.controllers.lib.table to javafx.fxml;
     exports main.controllers.main_window.credential_menu.menus;
     opens main.controllers.main_window.credential_menu.menus to javafx.fxml;
+    exports main.controllers.main_window.credential_menu.menus.logins;
+    opens main.controllers.main_window.credential_menu.menus.logins to javafx.fxml;
 }
