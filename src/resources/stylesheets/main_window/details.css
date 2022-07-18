@@ -11,14 +11,15 @@
     -fx-font: 16px Inter;
     -fx-text-fill: -fx-fill-secondary;
 }
-
 .copy {
     -fx-font: 10px Inter;
     -fx-font-weight: lighter;
     -fx-padding: 0 0 0 10;
     -fx-text-fill: -fx-fill-quaternary;
 }
-
+.icon {
+    -fx-cursor: hand;
+}
 .copy:hover {
     -fx-cursor: hand;
     -fx-underline: true;

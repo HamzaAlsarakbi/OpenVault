@@ -3,6 +3,9 @@ package main.controllers.main_window.credential_menu.menus;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -20,22 +23,20 @@ public class DetailsController implements Initializable {
     private AnchorPane root, detailsRootPane;
     @FXML
     private VBox historyVBox;
+    @FXML
+    private ImageView favIcon;
     private AnchorPane credentialDetailsPane;
     private FXMLLoader detailsFXML;
     private CredentialDetailsController credentialDetailsController;
     private boolean initializedPane;
     private boolean initializedCredential;
     private Credential credential;
-    private ArrayList<LogEntry> changeLog;
     private CList logList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initializedPane = false;
         initializedCredential = false;
-    }
-
-    private void initializeLog() {
 
     }
 
@@ -65,6 +66,10 @@ public class DetailsController implements Initializable {
         if(!initializedCredential) {
             this.credential = credential;
 
+            // Initialize fav icon
+            if(credential.getFavourite()) setFavourite(true);
+
+
             updateLogList();
             initializedCredential = true;
         }
@@ -80,5 +85,16 @@ public class DetailsController implements Initializable {
             VBox.setVgrow(logList, Priority.ALWAYS);
         }
 
+    }
+
+    public void favToggleHandler(MouseEvent e) {
+        credential.toggleFavourite();
+        setFavourite(credential.getFavourite());
+    }
+
+    private void setFavourite(boolean favourite) {
+        String fileName = favourite ? "filled" : "empty";
+        String path = String.format("/icons/common/star/star-%s.png", fileName);
+        favIcon.setImage(new Image(getClass().getResourceAsStream(path), 25, 25, true, true));
     }
 }

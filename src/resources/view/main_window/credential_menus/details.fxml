@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -10,7 +12,16 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="container" VBox.vgrow="NEVER">
                <children>
-                  <Label styleClass="header" text="Details" />
+                  <AnchorPane>
+                     <children>
+                        <Label styleClass="header" text="Details" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <ImageView id="favourite-icon" fx:id="favIcon" fitHeight="25.0" fitWidth="25.0" layoutY="17.0" onMouseClicked="#favToggleHandler" pickOnBounds="true" preserveRatio="true" styleClass="icon" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@../../../icons/common/star/star-empty.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                   <AnchorPane fx:id="detailsRootPane" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
