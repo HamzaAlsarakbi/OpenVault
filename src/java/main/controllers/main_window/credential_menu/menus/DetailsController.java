@@ -65,11 +65,8 @@ public class DetailsController implements Initializable {
     public void addCredential(Credential credential) {
         if(!initializedCredential) {
             this.credential = credential;
-
-            // Initialize fav icon
-            if(credential.getFavourite()) setFavourite(true);
-
-
+            updateFavouriteIcon();
+            credentialDetailsController.setFields(credential);
             updateLogList();
             initializedCredential = true;
         }
@@ -89,12 +86,12 @@ public class DetailsController implements Initializable {
 
     public void favToggleHandler(MouseEvent e) {
         credential.toggleFavourite();
-        setFavourite(credential.getFavourite());
+        updateFavouriteIcon();
     }
 
-    private void setFavourite(boolean favourite) {
-        String fileName = favourite ? "filled" : "empty";
-        String path = String.format("/icons/common/star/star-%s.png", fileName);
+    private void updateFavouriteIcon() {
+        String fileName = credential.getFavourite() ? "filled" : "empty";
+        String path = String.format("/icons/common/star/star_%s.png", fileName);
         favIcon.setImage(new Image(getClass().getResourceAsStream(path), 25, 25, true, true));
     }
 }

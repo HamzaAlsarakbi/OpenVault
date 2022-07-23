@@ -1,4 +1,7 @@
 package main.controllers.main_window.credential_menu.menus;
 
-public class CredentialDetailsController {
+import main.model.data.credential.Credential;
+
+public abstract class CredentialDetailsController {
+    public abstract void setFields(Credential credential);
 }

@@ -17,7 +17,7 @@
                         <Label styleClass="header" text="Details" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <ImageView id="favourite-icon" fx:id="favIcon" fitHeight="25.0" fitWidth="25.0" layoutY="17.0" onMouseClicked="#favToggleHandler" pickOnBounds="true" preserveRatio="true" styleClass="icon" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <image>
-                              <Image url="@../../../icons/common/star/star-empty.png" />
+                              <Image url="@../../../icons/common/back_arrow/back_arrow.png" />
                            </image>
                         </ImageView>
                      </children>

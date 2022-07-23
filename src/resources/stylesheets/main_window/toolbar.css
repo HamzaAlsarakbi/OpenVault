@@ -10,3 +10,16 @@ AnchorPane {
     -fx-padding: 5;
     -fx-inset: 5;
 }
+
+#toolbar-icon {
+    -fx-padding: 5;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+#toolbar-icon:hover {
+    -fx-background-color: -fx-hover-primary;
+}
+
+Label.toolbar-details {
+    -fx-translate-x: 40;
+}

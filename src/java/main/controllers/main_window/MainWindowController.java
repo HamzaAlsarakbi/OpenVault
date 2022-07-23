@@ -4,9 +4,13 @@ package main.controllers.main_window;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import main.controllers.lib.RichInputController;
 import main.controllers.main_window.credential_menu.CredentialMenu;
 import main.controllers.main_window.credential_menu.menus.CredentialDetailsController;
@@ -32,7 +36,13 @@ public class MainWindowController implements Initializable {
     @FXML
     private RichInputController searchBoxController;
     @FXML
-    private AnchorPane menuRootAnchor;
+    private AnchorPane menuRootAnchor, toolBar;
+    @FXML
+    private Label titleLabel;
+    @FXML
+    private ImageView backIcon;
+    @FXML
+    private StackPane backButton;
 
     private HBox[] getSidePanelButtons() {
         return new HBox[]{ dashboardButton, loginsButton, pinsButton, authenticationCodesButton,
@@ -130,6 +140,7 @@ public class MainWindowController implements Initializable {
     public void aboutHandler(MouseEvent mouseEvent) {
         setActive(aboutButton);
     }
+    public void backButtonHandler() { closeDetailsPane(); }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -151,5 +162,34 @@ public class MainWindowController implements Initializable {
         // setup details pane
         detailsController.addCredentialDetailsPane(loginDetailsFXML);
         detailsController.addCredential(credential);
+
+        // Setup top bar
+        setupBackButton();
     }
+    private void closeDetailsPane() {
+        activePane.setVisible(true);
+        menuRootAnchor.getChildren().remove(detailsPane);
+        hideBackButton();
+    }
+
+    private void setupBackButton() {
+        searchBoxController.setVisible(false);
+        titleLabel.setText("Back");
+        titleLabel.getStyleClass().add("toolbar-details");
+        backButton.setVisible(true);
+    }
+    private void hideBackButton() {
+        searchBoxController.setVisible(true);
+        titleLabel.setText("OpenVault");
+        titleLabel.getStyleClass().remove("toolbar-details");
+        backButton.setVisible(false);
+    }
+
+    private void resetToolbar() {
+        searchBoxController.setVisible(true);
+        titleLabel.setText("OpenVault");
+    }
+
+
+
 }

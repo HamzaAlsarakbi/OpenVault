@@ -34,6 +34,7 @@ public class RichInputController implements Initializable {
         });
     }
 
+    public void setVisible(boolean b) { root.setVisible(b); }
     public void setLabel(String text) { label.setText(text); }
     public TextField getTextField() { return textField; }
 

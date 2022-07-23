@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="261.0" prefWidth="315.0" stylesheets="@../../../../stylesheets/main_window/details.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.main_window.credential_menu.menus.logins.LoginDetailsController">
+<AnchorPane fx:id="root" stylesheets="@../../../../stylesheets/main_window/details.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.main_window.credential_menu.menus.logins.LoginDetailsController">
    <children>
       <VBox prefHeight="348.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -14,7 +15,7 @@
                   <Label styleClass="subheader" text="Type" />
                   <HBox styleClass="value-container">
                      <children>
-                        <Label fx:id="typeLabel" styleClass="value" text="TYPE_PLACEHOLDER" />
+                        <TextField fx:id="typeField" />
                         <Label fx:id="typeCopy" onMouseClicked="#copyType" styleClass="copy" text="(click here to copy)" />
                      </children>
                   </HBox>
@@ -25,7 +26,7 @@
                   <Label styleClass="subheader" text="Service" />
                   <HBox styleClass="value-container">
                      <children>
-                        <Label fx:id="serviceLabel" styleClass="value" text="SERVICE_PLACEHOLDER" />
+                        <TextField fx:id="serviceField" />
                         <Label fx:id="serviceCopy" onMouseClicked="#copyService" styleClass="copy" text="(click here to copy)" />
                      </children>
                   </HBox>
@@ -36,7 +37,7 @@
                   <Label styleClass="subheader" text="Username/Email" />
                   <HBox styleClass="value-container">
                      <children>
-                        <Label fx:id="aliasLabel" styleClass="value" text="ALIAS_PLACEHOLDER" />
+                        <TextField fx:id="aliasField" />
                         <Label fx:id="aliasCopy" onMouseClicked="#copyAlias" styleClass="copy" text="(click here to copy)" />
                      </children>
                   </HBox>
@@ -45,9 +46,8 @@
             <VBox styleClass="section-container">
                <children>
                   <Label styleClass="subheader" text="Password" />
-                  <HBox styleClass="value-container">
+                  <HBox fx:id="passwordHBox" styleClass="value-container">
                      <children>
-                        <Label fx:id="passwordLabel" styleClass="value" text="PASSWORD_PLACEHOLDER" />
                         <Label fx:id="passwordCopy" onMouseClicked="#copyPassword" styleClass="copy" text="(click here to copy)" />
                      </children>
                   </HBox>
